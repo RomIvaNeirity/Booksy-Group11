@@ -60,6 +60,39 @@ body {
   font-style: normal;
 }
 
+.btn {
+  border: 1px solid var(--color-bamboo);
+  background: var(--color-bamboo);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  min-height: 48px;
+  padding: 20px 8px;
+  font-size: 16px;
+}
+.btn:hover,
+.btn:focus {
+  border-color: var(--color-neutral-darkest);
+  background: var(--color-neutral-darkest);
+}
+.btn:active {
+  border-color: var(--color-bamboo-dark);
+  background: var(--color-bamboo-dark);
+}
+.btn:disabled {
+  border-color: var(--color-neutral-darkest);
+  background: var(--color-neutral-darkest);
+  opacity: 0.2;
+}
+@media only screen and (min-width: 768px) {
+  .btn {
+    min-height: 40px;
+    padding: 24px 12px;
+  }
+}
+
 .btn-secondary {
   border-color: var(--color-neutral-darkest);
   color: var(--color-neutral-darkest);
