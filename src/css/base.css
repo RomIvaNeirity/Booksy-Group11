@@ -96,6 +96,7 @@ body {
 .btn-secondary {
   border-color: var(--color-neutral-darkest);
   color: var(--color-neutral-darkest);
+  background: transparent;
 }
 .btn-secondary:hover,
 .btn-secondary:focus {
