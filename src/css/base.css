@@ -49,3 +49,37 @@
   --color-error-red: #ad0000;
   --font-family: 'Rubik', sans-serif;
 }
+
+body {
+  background-color: var(--color-scheme-1-background);
+  font-family: var(--font-family);
+  color: var(--color-scheme-1-text);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: normal;
+}
+
+.btn-secondary {
+  border-color: var(--color-neutral-darkest);
+  color: var(--color-neutral-darkest);
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--color-bamboo-light);
+}
+.btn-secondary:active {
+  background: var(--color-neutral-lighter);
+}
+.btn-secondary:disabled {
+  opacity: 0.2;
+}
+
+.link {
+  font-size: 16px;
+  color: var(--color-neutral-darkest);
+}
+
+.link:disabled {
+  opacity: 0.2;
+}
