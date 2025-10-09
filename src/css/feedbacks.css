@@ -1,0 +1,45 @@
+.container-feedback {
+    padding: 64px 16px;
+}
+
+
+.feedback-title {
+    font-weight: 600;
+    font-size: 36px;
+    
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.feedback-text {
+    margin-top: 24px;
+    font-size: 18px;
+}
+
+
+.feedback-swiper {
+    margin-top: 80px;
+}
+
+.swiper-slide.feedback-item{
+    border: 1px solid rgba(11, 5, 0, 0.15);
+    border-radius: 16px;
+    padding: 32px;
+    width: 341px;
+
+}
+
+
+.feedback-text-item{
+    font-size: 18px;
+}
+
+.feedback-list {}
+
+.swiper-button-prev {}
+
+.feedbacks-arrow-icon {}
+
+.swiper-button-next {}
+
+.swiper-pagination {}
