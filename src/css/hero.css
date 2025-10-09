@@ -2,9 +2,25 @@
   overflow: hidden;
 }
 
+.hero-swiper {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.swiper-wrapper {
+  width: 100%;
+}
+
+.swiper-slide {
+  width: 100%;
+}
+
 .hero-slider-button-wrapper {
   margin-top: 24px;
 
+  width: 320 px;
   display: flex;
   flex-direction: row-reverse;
   gap: 16px;
