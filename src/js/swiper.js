@@ -1,13 +1,22 @@
 import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+
+// Swiper CSS (core + модулі)
 import 'swiper/css';
+/* import 'swiper/css/navigation'; */
+import 'swiper/css/pagination';
 
-
-export const swiper = new Swiper('.swiper', {
-     speed: 400,
-  spaceBetween: 100,
-    loop: true,
+// надійніше — ініціювати коли DOM готовий
+document.addEventListener('DOMContentLoaded', () => {
+  const heroSwiper = new Swiper('.hero-swiper', {
+    modules: [Navigation],
+    
+    slidesPerView: 1,
+    spaceBetween: 20,
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    }
-})
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+  });
+});

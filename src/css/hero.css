@@ -1,4 +1,10 @@
+.hero {
+  overflow: hidden;
+}
+
 .hero-slider-button-wrapper {
+  margin-top: 24px;
+
   width: 320 px;
   display: flex;
   flex-direction: row-reverse;
@@ -22,6 +28,7 @@
 }
 
 .hero-title {
+  margin-top: 24px;
   font: 600 40px / 1.2 var(--font-family);
   letter-spacing: -0.01em;
   color: var(--color-scheme-1-text);
