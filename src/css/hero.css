@@ -5,7 +5,6 @@
 .hero-slider-button-wrapper {
   margin-top: 24px;
 
-  width: 320 px;
   display: flex;
   flex-direction: row-reverse;
   gap: 16px;
