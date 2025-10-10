@@ -26,6 +26,12 @@
     border-radius: 16px;
     padding: 32px;
     width: 341px;
+    height: auto;
+
+    gap: 24px;
+
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -34,7 +40,34 @@
     font-size: 18px;
 }
 
+.user-container{
+    
+    display: flex;
+    gap: 16px;
+    margin-top: auto;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.image-avatar{
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+
 .feedback-list {}
+
+.swiper-button-feedbacks{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
 
 .swiper-button-prev {}
 
@@ -42,4 +75,6 @@
 
 .swiper-button-next {}
 
-.swiper-pagination {}
+.swiper-pagination {
+    margin-right: auto;
+}
