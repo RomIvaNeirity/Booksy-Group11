@@ -1,0 +1,99 @@
+.btn {
+  padding: 8px 24px;
+}
+
+.book-modal-layer {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+
+  position: fixed;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.book-modal-layer.is-opened {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.book-modal {
+  width: 343px;
+  min-height: 90%;
+  padding: 64px 16px;
+
+  background: var(--color-scheme-1-background);
+  border-radius: 16px;
+
+  position: relative;
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  min-height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.book-img-container {
+  width: 309px;
+}
+
+.book-img {
+  width: 100%;
+  position: sticky;
+}
+
+.book-amount-wrapper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.book-action-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 24px;
+}
+
+.book-request {
+  margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .book-modal {
+    width: 704px;
+    min-height: 100px;
+    padding: 64px 32px;
+  }
+
+  .book-info-container {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .book-modal {
+    width: 1300px;
+    min-height: 643px;
+    padding: 64px 104px;
+  }
+}

@@ -1,5 +1,5 @@
 <div class="book-modal-layer">
-  <div class="book-modal container">
+  <div class="book-modal">
     <div class="book-info-container">
       <div class="book-img-container">
         <img src="" alt="" />
@@ -10,11 +10,15 @@
         <p class="book-price"></p>
         <form class="book-request">
           <input type="hidden" name="book" value="643282b2e85766588626a0ee" />
-          <button class="btn-minus" type="button">-</button>
-          <input type="number" name="amount" id="amount" value="1" disabled />
-          <button class="btn-pluus" type="button">+</button>
-          <button class="btn" type="button">Add to cart</button>
-          <button class="btn btn-secondary" type="submit">Buy now</button>
+          <div class="book-amount-wrapper">
+            <button class="btn btn-secondary btn-minus" type="button">-</button>
+            <input type="number" name="amount" id="amount" value="1" disabled />
+            <button class="btn btn-secondary btn-plus" type="button">+</button>
+          </div>
+          <div class="book-action-wrapper">
+            <button class="btn" type="button">Add to cart</button>
+            <button class="btn btn-secondary" type="submit">Buy now</button>
+          </div>
         </form>
         <ul class="accordion-container">
           <li class="ac">
@@ -55,6 +59,6 @@
         </ul>
       </div>
     </div>
-    <button class="btn-close" type="button">x</button>
+    <button class="btn btn-secondary btn-close-modal" type="button">x</button>
   </div>
 </div>
