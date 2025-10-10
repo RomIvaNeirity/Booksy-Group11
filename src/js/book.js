@@ -18,21 +18,17 @@ async function showBook(bookId) {
   }
 }
 
-function renderBook(book) {
-  bookImg.innerHTML = `<img class="book-img" src="${book.book_image}" alt="">`;
-  if (book.description.length) bookDetails.textContent = book.description;
+function renderBook({ book_image, description }) {
+  bookImg.innerHTML = `<img class="book-img" src="${book_image}" alt="">`;
+  if (description.length) bookDetails.textContent = description;
 }
 
-// bookList.addEventListener('click', event => {
 export function onBookClick(event) {
-  console.log(event.target);
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-  console.log(event.target.dataset.id);
   // const bookId = '643282b1e85766588626a080';
   const bookId = event.target.dataset.id;
-  console.log(`Show Book ${bookId}`);
   showBook(bookId);
 }
 
