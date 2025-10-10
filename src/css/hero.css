@@ -9,8 +9,16 @@
   -ms-user-select: none;
 }
 
-.swiper-slide {
+.hero-title-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.swiper-slide img {
   border-radius: 8px;
+  width: 100%;
+
+  object-fit: cover;
 }
 
 .hero-slide-cover-layers {
@@ -87,4 +95,7 @@
   font: 600 40px / 1.2 var(--font-family);
   letter-spacing: -0.01em;
   color: var(--color-scheme-1-text);
+}
+
+@media screen and (min-width: 768px) {
 }
