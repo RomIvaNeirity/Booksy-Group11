@@ -2,6 +2,38 @@
   overflow: hidden;
 }
 
+.hero-swiper {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.hero-slide-cover-layers {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+.hero-slide-cover-title {
+  font: 600 20px / 1.4 var(--font-family);
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-3-accent);
+  max-width: 172px;
+}
+
+.hero-slide-cover-button {
+  display: block;
+  text-align: center;
+  border: 0.52px solid var(--color-scheme-3-foreground);
+  border-radius: 2px;
+  padding: 4px 10px;
+
+  font: 400 8px / 1.5 var(--font-family);
+  color: var(--color-white);
+  background: var(--color-scheme-3-foreground);
+}
+
 .hero-slider-button-wrapper {
   margin-top: 24px;
 

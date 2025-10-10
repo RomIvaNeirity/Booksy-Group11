@@ -1,6 +1,2 @@
 import './js/book.js';
-
-// підключаємо ініціалізацію
-import './js/swiper.js';
-
-// Now you can use all slider methods like
+import { heroSwiper } from './js/swiper.js';

@@ -1,21 +1,139 @@
 <section class="hero section container">
   <div class="hero-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img class="slider-image" src="./img/hero/banner_1.jpg" />
-      </div>
-      <div class="swiper-slide"><img src="./img/hero/banner_2.jpg" /></div>
-      <div class="swiper-slide"><img src="./img/hero/banner_3.jpg" /></div>
-      <div class="swiper-slide"><img src="./img/hero/banner_4.jpg" /></div>
-    </div>
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <div class="hero-slide-cover-layers">
+          <h3 class="hero-slide-cover-title">Get 10% off your first order</h3>
+          <a href="#books" class="hero-slide-cover-button">Shop Now!</a>
+        </div>
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcset="
+              ./img/hero/hero-banner1-desk.jpg    1x,
+              ./img/hero/hero-banner1-desk@2x.jpg 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./img/hero/hero-banner1-tab.jpg    1x,
+              ./img/hero/hero-banner1-tab@2x.jpg 2x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ./img/hero/hero-banner1-mob.jpg    1x,
+              ./img/hero/hero-banner1-mob@2x.jpg 2x
+            "
+          />
+          <img
+            class="swiper-slide-image"
+            src="./img/hero/hero-banner1-desk.jpg"
+            alt=""
+          />
+        </picture>
+      </li>
+      <li class="swiper-slide">
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcset="
+              ./img/hero/hero-banner2-desk.jpg    1x,
+              ./img/hero/hero-banner2-desk@2x.jpg 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./img/hero/hero-banner2-tab.jpg    1x,
+              ./img/hero/hero-banner2-tab@2x.jpg 2x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ./img/hero/hero-banner2-mob.jpg    1x,
+              ./img/hero/hero-banner2-mob@2x.jpg 2x
+            "
+          />
+          <img
+            class="swiper-slide-image"
+            src="./img/hero/hero-banner2-desk.jpg"
+            alt=""
+          />
+        </picture>
+      </li>
+      <li class="swiper-slide">
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcset="
+              ./img/hero/hero-banner3-desk.jpg    1x,
+              ./img/hero/hero-banner3-desk@2x.jpg 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./img/hero/hero-banner3-tab.jpg    1x,
+              ./img/hero/hero-banner3-tab@2x.jpg 2x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ./img/hero/hero-banner3-mob.jpg    1x,
+              ./img/hero/hero-banner3-mob@2x.jpg 2x
+            "
+          />
+          <img
+            class="swiper-slide-image"
+            src="./img/hero/hero-banner3-desk.jpg"
+            alt=""
+          />
+        </picture>
+      </li>
+      <li class="swiper-slide">
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcset="
+              ./img/hero/hero-banner4-desk.jpg    1x,
+              ./img/hero/hero-banner4-desk@2x.jpg 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./img/hero/hero-banner4-tab.jpg    1x,
+              ./img/hero/hero-banner4-tab@2x.jpg 2x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ./img/hero/hero-banner4-mob.jpg    1x,
+              ./img/hero/hero-banner4-mob@2x.jpg 2x
+            "
+          />
+          <img
+            class="swiper-slide-image"
+            src="./img/hero/hero-banner4-desk.jpg"
+            alt=""
+          />
+        </picture>
+      </li>
+    </ul>
 
     <div class="hero-slider-button-wrapper">
-      <div class="swiper-button-prev">
+      <div class="swiper-button-next">
         <svg class="hero-arrow-icon">
           <use href="./img/icons.svg#icon-right-arrow" />
         </svg>
       </div>
-      <div class="swiper-button-next">
+      <div class="swiper-button-prev">
         <svg class="hero-arrow-icon">
           <use href="./img/icons.svg#icon-left-arrow" />
         </svg>
