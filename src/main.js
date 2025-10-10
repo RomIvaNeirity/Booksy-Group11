@@ -1,6 +1,4 @@
-
-
-
+import './js/book.js';
 
 // підключаємо ініціалізацію
 import './js/swiper.js';
