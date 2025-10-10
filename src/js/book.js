@@ -1,19 +1,15 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 
-import { getBook } from './api';
+import BooksAPI from './books-api';
 
-const bookContainer = document.querySelector('.book-info-container');
+// const bookList = document.querySelector('.books-list');
 const bookImg = document.querySelector('.book-img-container');
 const bookDetails = document.querySelector("[data-category='details'");
-const bookShipping = document.querySelector("[data-category='shipping'");
-const bookReturns = document.querySelector("[data-category='returns'");
-
-const btn = document.querySelector('.book-more');
 
 async function showBook(bookId) {
   try {
-    const bookData = await getBook(bookId);
+    const bookData = await BooksAPI.fetchBookById(bookId);
     console.log(bookData);
     renderBook(bookData);
   } catch (error) {
@@ -24,19 +20,21 @@ async function showBook(bookId) {
 
 function renderBook(book) {
   bookImg.innerHTML = `<img class="book-img" src="${book.book_image}" alt="">`;
-  bookDetails.textContent = book.description;
-  bookShipping.textContent =
-    'We ship across the United States within 2–5 business days. All orders are processed through USPS or a reliable courier service. Enjoy free standard shipping on orders over $50.';
-  bookReturns.textContent =
-    'You can return an item within 14 days of receiving your order, provided it hasn’t been used and is in its original condition. To start a return, please contact our support team — we’ll guide you through the process quickly and hassle-free.';
+  if (book.description.length) bookDetails.textContent = book.description;
 }
 
-btn.addEventListener('click', event => {
-  // console.log(event.target.data.id);
-  const bookId = '643282b1e85766588626a080';
+// bookList.addEventListener('click', event => {
+export function onBookClick(event) {
+  console.log(event.target);
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  console.log(event.target.dataset.id);
+  // const bookId = '643282b1e85766588626a080';
+  const bookId = event.target.dataset.id;
   console.log(`Show Book ${bookId}`);
   showBook(bookId);
-});
+}
 
 const accordion = new Accordion('.accordion-container', {
   duration: 400,
