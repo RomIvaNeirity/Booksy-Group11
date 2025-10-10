@@ -9,6 +9,10 @@
   -ms-user-select: none;
 }
 
+.swiper-slide {
+  border-radius: 8px;
+}
+
 .hero-slide-cover-layers {
   position: absolute;
   bottom: 16px;
