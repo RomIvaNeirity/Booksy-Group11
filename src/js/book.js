@@ -207,19 +207,11 @@ function blockScrollByKeys(event) {
 }
 
 function disableScroll() {
-  window.addEventListener('wheel', blockScroll, { passive: false });
-  window.addEventListener('touchmove', blockScroll, { passive: false });
-  window.addEventListener('keydown', blockScrollByKeys, {
-    passive: false,
-  });
+  document.querySelector('body').classList.add('menu-open');
 }
 
 function enableScroll() {
-  window.removeEventListener('wheel', blockScroll, { passive: false });
-  window.removeEventListener('touchmove', blockScroll, { passive: false });
-  window.removeEventListener('keydown', blockScrollByKeys, {
-    passive: false,
-  });
+  document.querySelector('body').classList.remove('menu-open');
 }
 
 export function onBookClick(event) {
