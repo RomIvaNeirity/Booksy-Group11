@@ -1,0 +1,145 @@
+.events-section {
+  padding: 64px 0;
+}
+
+.events-label {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: capitalize;
+  color: #0b0500;
+  margin-bottom: 16px;
+  padding-top: 64px;
+}
+
+.events-title {
+  font-size: 36px;
+  margin-top: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.events-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin-bottom: 32px;
+}
+
+.events-item {
+  min-width: 344px;
+}
+
+.events-img {
+  border-radius: 16px !important;
+  margin-top: 0;
+}
+
+.events-subtitle {
+  margin-top: 24px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0500;
+}
+
+.events-place {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin-top: 0;
+}
+
+.events-card-text {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin-top: 8px;
+}
+
+.events-register {
+  display: flex;
+  margin-top: 24px;
+  font-size: 16px;
+  width: 95px;
+  transition: color var(--time) var(--transition),
+    fill var(--time) var(--transition);
+}
+
+.events-register:hover,
+.events-register:focus {
+  color: rgba(11, 5, 0, 0.75);
+  fill: rgba(11, 5, 0, 0.75);
+  text-decoration: underline;
+}
+
+.swiper-slide:nth-child(2) .events-register,
+.swiper-slide:nth-child(3) .events-register {
+  margin-top: 58px;
+}
+
+.events-controller {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 32px;
+}
+
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  bottom: var(--swiper-pagination-bottom, 16px) !important;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+  gap: 16px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #000;
+}
+
+.swiper-pagination-bullet {
+  transition: background-color var(--time) var(--transition);
+}
+
+.events-section .swiper-pagination-bullet-active {
+  background-color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .events-text {
+    max-width: 560px;
+  }
+  .events-item {
+    min-width: 340px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .events-title {
+    font-size: 48px;
+  }
+
+  .events-controller {
+    display: none;
+  }
+  .events-item {
+    min-width: 421px;
+  }
+  .swiper-slide:nth-child(3) .events-register {
+    margin-top: 82px;
+  }
+}
