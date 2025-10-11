@@ -1,10 +1,3 @@
-
-
-
-
-// підключаємо ініціалізацію
-import './js/swiper.js';
-
 import './js/feedbacks.js'
+import { heroSwiper, feedbacksSwiper} from './js/swiper.js';
 
-// Now you can use all slider methods like

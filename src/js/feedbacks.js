@@ -93,7 +93,7 @@ const feedbackList = feedbacks
         `<li class="swiper-slide feedback-item">
         <p class ="feedback-text-item">${fb.text}</p>
         <div class="user-container">
-        <img class="image-avatar" src="${fb.image}" alt="${fb.name}"/>
+        <img class="swiper-slide image-avatar" src="${fb.image}" alt="${fb.name}"/>
         <div class="user-info">
         <p class="user-name">${fb.name}</p>
         <p class="user-role">${fb.role}</p>

@@ -1,29 +1,32 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 
-// Swiper CSS (core + модулі)
+import { Navigation, Pagination, Keyboard  } from 'swiper/modules';
+
+
 import 'swiper/css';
-/* import 'swiper/css/navigation'; */
 import 'swiper/css/pagination';
 
-// надійніше — ініціювати коли DOM готовий
-document.addEventListener('DOMContentLoaded', () => {
-  const heroSwiper = new Swiper('.hero-swiper', {
-    modules: [Navigation],
-    
-    slidesPerView: 1,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+export const heroSwiper = new Swiper('.hero-swiper', {
+  modules: [Navigation],
+    speed: 600,
+    loop: false,
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true
     },
-    
-  });
+  slidesPerView: 1,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    },
+  
 });
 
 
-const feedbacksSwiper = new Swiper('.feedback-swiper', {
-    modules:[Navigation, Pagination, Keyboard],
+export const feedbacksSwiper = new Swiper('.feedback-swiper', {
+  modules: [Navigation, Pagination, Keyboard],
+  spaceBetween: 24,
   loop: false,
   keyboard: {
     enabled: true,
@@ -32,7 +35,7 @@ const feedbacksSwiper = new Swiper('.feedback-swiper', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-    dynamicBullets: true,
+    dynamicBullets: false,
   },
   navigation: {
     nextEl: '.swiper-button-next',
@@ -41,12 +44,15 @@ const feedbacksSwiper = new Swiper('.feedback-swiper', {
   breakpoints: {
     320: {
       slidesPerView: 1,
+      slidesPerGroup: 1,
     },
     768: {
       slidesPerView: 2,
+      slidesPerGroup: 2,
     },
     1440: {
       slidesPerView: 3,
+      slidesPerGroup: 3,
     },
   },
 });
