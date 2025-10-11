@@ -1,6 +1,7 @@
 /* Styles for Mobile devices */
 .location-container {
-    padding: 64px 16px;
+    padding-top: 64px;
+    padding-bottom: 64px;
 }
 
 .location-head-container {
@@ -65,12 +66,8 @@
 
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-
+    
     .location-container {
-        padding: 64px 32px;
         display: flex;
         flex-wrap: wrap;
     }
@@ -99,10 +96,7 @@
 
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-    }
-
+    
     .cntr {
         flex: 1 1 calc(50% - 40px);
     }
