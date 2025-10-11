@@ -26,6 +26,7 @@ export const heroSwiper = new Swiper('.hero-swiper', {
 
 export const feedbacksSwiper = new Swiper('.feedback-swiper', {
   modules: [Navigation, Pagination, Keyboard],
+  speed:600,
   spaceBetween: 24,
   loop: false,
   keyboard: {
@@ -33,7 +34,7 @@ export const feedbacksSwiper = new Swiper('.feedback-swiper', {
     onlyInViewport: true,
   },
   pagination: {
-    el: '.swiper-pagination',
+    el: '.swiper-pagination-feedbacks',
     clickable: true,
     dynamicBullets: false,
   },
@@ -44,15 +45,15 @@ export const feedbacksSwiper = new Swiper('.feedback-swiper', {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      slidesPerGroup: 1,
+      slidesPerGroup: 4,
     },
     768: {
       slidesPerView: 2,
-      slidesPerGroup: 2,
+      slidesPerGroup: 4,
     },
     1440: {
       slidesPerView: 3,
-      slidesPerGroup: 3,
+      slidesPerGroup: 4,
     },
   },
 });
