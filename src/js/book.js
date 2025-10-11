@@ -3,28 +3,113 @@ import 'accordion-js/dist/accordion.min.css';
 
 import BooksAPI from './books-api';
 
-const bookModal = document.querySelector('.book-modal-layer');
+const bookModalFullscreen = document.querySelector('.book-modal-layer');
 const bookDecsription = document.querySelector('.book-desc');
 const bookImg = document.querySelector('.book-img-container');
 const bookDetails = document.querySelector("[data-category='details']");
-const bookClose = document.querySelector('.btn-close-modal');
+const bookModal = document.querySelector('.book-modal');
+const bookForm = document.querySelector('.book-request');
 
 async function showBook(bookId) {
   try {
     const bookData = await BooksAPI.fetchBookById(bookId);
-    console.log(bookData);
+    // console.log(bookData);
     renderBook(bookData);
-    bookModal.classList.add('is-opened');
+    bookModalFullscreen.classList.add('is-opened');
 
-    bookModal.addEventListener('click', closeModal);
+    bookModalFullscreen.addEventListener('click', closeModal);
     document.addEventListener('keydown', closeModal);
+    bookForm.addEventListener('click', onBookFormClick);
+    bookForm.addEventListener('submit', onBookFormSubmit);
+    console.log(onBookFormClick);
+
+    setupAccordeon();
   } catch (error) {
     console.log(error);
     return;
   }
 }
 
+function closeModal(event) {
+  if (
+    event.target.classList.contains('btn-close-modal') ||
+    event.target.classList.contains('book-modal-layer') ||
+    event.code === 'Escape'
+  ) {
+    bookModalFullscreen.classList.remove('is-opened');
+
+    bookModalFullscreen.removeEventListener('click', closeModal);
+    document.removeEventListener('keydown', closeModal);
+    bookForm.removeEventListener('click', onBookFormClick);
+    bookForm.removeEventListener('submit', onBookFormSubmit);
+
+    clearAccordeon();
+  }
+}
+
 function renderBook({ book_image, title, author, price, description }) {
+  bookModal.innerHTML = `<div class="book-info-container">
+      <div class="book-img-container">
+        <img class="book-img" src="${book_image}" alt="${title}">
+      </div>
+      <div class="book-desc">
+        <h3 class="book-title">${title}</h3>
+        <p class="book-author">${author}</p>
+        <p class="book-price">${price}</p>
+        <form class="book-request">
+          <input type="hidden" name="book" value="643282b2e85766588626a0ee" />
+          <div class="book-amount-wrapper">
+            <button class="btn btn-secondary btn-minus" type="button">-</button>
+            <input type="number" name="amount" id="amount" value="1" disabled />
+            <button class="btn btn-secondary btn-plus" type="button">+</button>
+          </div>
+          <div class="book-action-wrapper">
+            <button class="btn" type="button">Add to cart</button>
+            <button class="btn btn-secondary" type="submit">Buy now</button>
+          </div>
+        </form>
+        <ul class="accordion-container">
+          <li class="ac">
+            <h4 class="ac-header">
+              <button type="button" class="ac-trigger">Details</button>
+            </h4>
+            <div class="ac-panel">
+              <p class="ac-text" data-category="details">
+                ${description.length ? description : title + ' by ' + author}
+              </p>
+            </div>
+          </li>
+          <li class="ac">
+            <h4 class="ac-header">
+              <button type="button" class="ac-trigger">Shipping</button>
+            </h4>
+            <div class="ac-panel">
+              <p class="ac-text" data-category="shipping">
+                We ship across the United States within 2–5 business days. All
+                orders are processed through USPS or a reliable courier service.
+                Enjoy free standard shipping on orders over $50.
+              </p>
+            </div>
+          </li>
+          <li class="ac">
+            <h4 class="ac-header">
+              <button type="button" class="ac-trigger">Returns</button>
+            </h4>
+            <div class="ac-panel">
+              <p class="ac-text" data-category="returns">
+                You can return an item within 14 days of receiving your order,
+                provided it hasn’t been used and is in its original condition.
+                To start a return, please contact our support team — we’ll guide
+                you through the process quickly and hassle-free.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button class="btn btn-secondary btn-close-modal" type="button">x</button>`;
+
+  return;
   bookImg.innerHTML = `<img class="book-img" src="${book_image}" alt="">`;
   if (description.length) bookDetails.textContent = description;
   bookDecsription.insertAdjacentHTML(
@@ -36,34 +121,53 @@ function renderBook({ book_image, title, author, price, description }) {
   );
 }
 
-function closeModal(event) {
-  console.log(event.code);
-  if (
-    event.target.classList.contains('btn-close-modal') ||
-    event.target.classList.contains('book-modal-layer') ||
-    event.code === 'Escape'
-  ) {
-    bookModal.classList.remove('is-opened');
-    bookModal.removeEventListener('click', closeModal);
-    document.removeEventListener('keydown', closeModal);
-  }
+function setupAccordeon() {
+  const accordion = new Accordion('.accordion-container', {
+    duration: 400,
+    showMultiple: true,
+  });
+  accordion.attachEvents();
 }
 
-bookModal.addEventListener('scroll', event => {
-  event.stopPropagation();
-});
+function clearAccordeon() {
+  const accordion = new Accordion('.accordion-container', {
+    duration: 400,
+    showMultiple: true,
+  });
+  accordion.detachEvents();
+}
+
+function increaseBookAmount(event) {
+  bookForm.querySelector('name="amount"').value++;
+}
+
+function decreaseBookAmount(event) {
+  const amount = bookForm.querySelector('name="amount"').value--;
+  if (amount == 1) event.target.classList.contains('btn-minus').disabled = true;
+}
+
+function onBookFormClick(event) {
+  console.log(`bookForm.querySelector("name='amount'")`);
+  // if (event.target.nodeName !== 'BUTTON') return;
+  // event.preventDefault();
+
+  // if (event.target.classList.contains('btn-minus')) decreaseBookAmount(event);
+  // if (event.target.classList.contains('btn-plus')) increaseBookAmount(event);
+}
+
+function onBookFormSubmit(event) {
+  console.log(event.target.elements);
+  // event.preventDefault();
+}
 
 export function onBookClick(event) {
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-  // const bookId = '643282b1e85766588626a080';
   const bookId = event.target.dataset.id;
   showBook(bookId);
 }
 
-const accordion = new Accordion('.accordion-container', {
-  duration: 400,
-  showMultiple: true,
-});
-accordion.attachEvents();
+// bookModalFullscreen.addEventListener('scroll', event => {
+//   event.stopPropagation();
+// });
