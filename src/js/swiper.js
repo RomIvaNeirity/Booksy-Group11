@@ -14,9 +14,10 @@ export const heroSwiper = new Swiper('.hero-swiper', {
         onlyInViewport: true
     },
   slidesPerView: 1,
-  spaceBetween: 20,
+ spaceBetween: 20,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  }
+    },
+  
 });
