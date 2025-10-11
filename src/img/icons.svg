@@ -1,21 +1,24 @@
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"
   xmlns="http://www.w3.org/2000/svg">
-  <defs>
     <defs>
-      <symbol id="icon-left-arrow" viewBox="0 0 32 32">
-        <path
+        <defs>
+            <symbol id="icon-left-arrow" viewBox="0 0 32 32">
+                <path
           d="M16.943 23.057l-5.724-5.724h12.781v-2.667h-12.781l5.724-5.724-1.885-1.885-8.943 8.943 8.943 8.943 1.885-1.885z"></path>
-      </symbol>
-      <symbol id="icon-right-arrow" viewBox="0 0 32 32">
-        <path
+            </symbol>
+            <symbol id="icon-right-arrow" viewBox="0 0 32 32">
+                <path
           d="M15.057 23.057l1.885 1.885 8.943-8.943-8.943-8.943-1.885 1.885 5.724 5.724h-12.781v2.667h12.781l-5.724 5.724z"></path>
-      </symbol>
-      <symbol id="icon-icon-close" viewBox="0 0 32 32">
-<path d="M27.179 0.918l-11.315 11.312-11.312-11.312-3.771 3.771 11.312 11.312-11.312 11.312 3.771 3.771 11.312-11.312 11.315 11.312 3.771-3.771-11.312-11.312 11.312-11.312-3.771-3.771z"></path>
-</symbol>
-<symbol id="icon-menu-icon" viewBox="0 0 43 32">
-<path d="M0 0h42.667v5.333h-42.667v-5.333zM10.667 13.333h32v5.333h-32v-5.333zM24 26.667h18.667v5.333h-18.667v-5.333z"></path>
-</symbol>
+            </symbol>
+            <symbol id="icon-icon-close" viewBox="0 0 32 32">
+                <path d="M27.179 0.918l-11.315 11.312-11.312-11.312-3.771 3.771 11.312 11.312-11.312 11.312 3.771 3.771 11.312-11.312 11.315 11.312 3.771-3.771-11.312-11.312 11.312-11.312-3.771-3.771z"></path>
+            </symbol>
+            <symbol id="icon-menu-icon" viewBox="0 0 43 32">
+                <path d="M0 0h42.667v5.333h-42.667v-5.333zM10.667 13.333h32v5.333h-32v-5.333zM24 26.667h18.667v5.333h-18.667v-5.333z"></path>
+            </symbol>
+            <symbol id="icon-chevron-right" viewBox="0 0 31 32">
+                <path d="M12.425 22.77l7.305-7.305-7.305-7.305-1.81 1.81 5.495 5.495-5.495 5.495 1.81 1.81z"></path>
+            </symbol>
+        </defs>
     </defs>
-  </defs>
 </svg>
