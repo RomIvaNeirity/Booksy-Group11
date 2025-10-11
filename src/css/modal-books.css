@@ -4,15 +4,11 @@
 
 .book-modal-layer {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.25);
 
   position: fixed;
   z-index: 999;
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 
   opacity: 0;
   pointer-events: none;
@@ -25,7 +21,7 @@
 
 .book-modal {
   width: 343px;
-  min-height: 90%;
+  max-height: 90%;
   padding: 64px 16px;
 
   margin: 0 auto;
@@ -33,7 +29,11 @@
   background: var(--color-scheme-1-background);
   border-radius: 16px;
 
-  position: sticky;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  overflow: auto;
 }
 
 .btn-close-modal {
@@ -82,7 +82,7 @@
 @media only screen and (min-width: 768px) {
   .book-modal {
     width: 704px;
-    min-height: 100px;
+    /* min-height: 100px; */
     padding: 64px 32px;
   }
 
@@ -95,7 +95,7 @@
 @media only screen and (min-width: 1200px) {
   .book-modal {
     width: 1300px;
-    min-height: 643px;
+    /* min-height: 643px; */
     padding: 64px 104px;
   }
 }

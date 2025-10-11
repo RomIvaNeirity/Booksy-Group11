@@ -22,6 +22,7 @@ async function showBook(bookId) {
     const bookForm = document.querySelector('.book-form');
     bookForm.addEventListener('click', onBookFormClick);
     bookForm.addEventListener('submit', onBookFormSubmit);
+    disableScroll();
 
     setupAccordeon();
   } catch (error) {
@@ -44,6 +45,7 @@ function closeModal(event) {
     const bookForm = document.querySelector('.book-form');
     bookForm.removeEventListener('click', onBookFormClick);
     bookForm.removeEventListener('submit', onBookFormSubmit);
+    enableScroll();
 
     clearAccordeon();
   }
@@ -184,6 +186,42 @@ function onBookFormSubmit(event) {
   alert('Дякуємо за покупку');
 }
 
+function blockScroll(event) {
+  event.preventDefault();
+}
+
+function blockScrollByKeys(event) {
+  if (
+    [
+      'ArrowUp',
+      'ArrowDown',
+      'PageUp',
+      'PageDown',
+      'Home',
+      'End',
+      'Space',
+    ].includes(event.key)
+  ) {
+    event.preventDefault();
+  }
+}
+
+function disableScroll() {
+  window.addEventListener('wheel', blockScroll, { passive: false });
+  window.addEventListener('touchmove', blockScroll, { passive: false });
+  window.addEventListener('keydown', blockScrollByKeys, {
+    passive: false,
+  });
+}
+
+function enableScroll() {
+  window.removeEventListener('wheel', blockScroll, { passive: false });
+  window.removeEventListener('touchmove', blockScroll, { passive: false });
+  window.removeEventListener('keydown', blockScrollByKeys, {
+    passive: false,
+  });
+}
+
 export function onBookClick(event) {
   if (event.target.nodeName !== 'BUTTON') {
     return;
@@ -191,7 +229,3 @@ export function onBookClick(event) {
   const bookId = event.target.dataset.id;
   showBook(bookId);
 }
-
-// bookModalFullscreen.addEventListener('scroll', event => {
-//   event.stopPropagation();
-// });
