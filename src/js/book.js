@@ -4,11 +4,10 @@ import 'accordion-js/dist/accordion.min.css';
 import BooksAPI from './books-api';
 
 const bookModalFullscreen = document.querySelector('.book-modal-layer');
-const bookDecsription = document.querySelector('.book-desc');
-const bookImg = document.querySelector('.book-img-container');
-const bookDetails = document.querySelector("[data-category='details']");
+// const bookDecsription = document.querySelector('.book-desc');
+// const bookImg = document.querySelector('.book-img-container');
+// const bookDetails = document.querySelector("[data-category='details']");
 const bookModal = document.querySelector('.book-modal');
-const bookForm = document.querySelector('.book-request');
 
 async function showBook(bookId) {
   try {
@@ -19,9 +18,10 @@ async function showBook(bookId) {
 
     bookModalFullscreen.addEventListener('click', closeModal);
     document.addEventListener('keydown', closeModal);
+
+    const bookForm = document.querySelector('.book-form');
     bookForm.addEventListener('click', onBookFormClick);
     bookForm.addEventListener('submit', onBookFormSubmit);
-    console.log(onBookFormClick);
 
     setupAccordeon();
   } catch (error) {
@@ -40,6 +40,8 @@ function closeModal(event) {
 
     bookModalFullscreen.removeEventListener('click', closeModal);
     document.removeEventListener('keydown', closeModal);
+
+    const bookForm = document.querySelector('.book-form');
     bookForm.removeEventListener('click', onBookFormClick);
     bookForm.removeEventListener('submit', onBookFormSubmit);
 
@@ -47,7 +49,7 @@ function closeModal(event) {
   }
 }
 
-function renderBook({ book_image, title, author, price, description }) {
+function renderBook({ _id, book_image, title, author, price, description }) {
   bookModal.innerHTML = `<div class="book-info-container">
       <div class="book-img-container">
         <img class="book-img" src="${book_image}" alt="${title}">
@@ -56,15 +58,15 @@ function renderBook({ book_image, title, author, price, description }) {
         <h3 class="book-title">${title}</h3>
         <p class="book-author">${author}</p>
         <p class="book-price">${price}</p>
-        <form class="book-request">
-          <input type="hidden" name="book" value="643282b2e85766588626a0ee" />
+        <form class="book-form">
+          <input type="hidden" name="book" value="${_id}" />
           <div class="book-amount-wrapper">
-            <button class="btn btn-secondary btn-minus" type="button">-</button>
+            <button class="btn btn-secondary btn-minus" type="button" disabled>-</button>
             <input type="number" name="amount" id="amount" value="1" disabled />
             <button class="btn btn-secondary btn-plus" type="button">+</button>
           </div>
           <div class="book-action-wrapper">
-            <button class="btn" type="button">Add to cart</button>
+            <button class="btn btn-add-to-cart" type="button">Add to cart</button>
             <button class="btn btn-secondary" type="submit">Buy now</button>
           </div>
         </form>
@@ -110,15 +112,15 @@ function renderBook({ book_image, title, author, price, description }) {
     <button class="btn btn-secondary btn-close-modal" type="button">x</button>`;
 
   return;
-  bookImg.innerHTML = `<img class="book-img" src="${book_image}" alt="">`;
-  if (description.length) bookDetails.textContent = description;
-  bookDecsription.insertAdjacentHTML(
-    'afterbegin',
-    `
-        <h3 class="book-title">${title}</h3>
-        <p class="book-author">${author}</p>
-        <p class="book-price">${price}</p>`
-  );
+  // bookImg.innerHTML = `<img class="book-img" src="${book_image}" alt="">`;
+  // if (description.length) bookDetails.textContent = description;
+  // bookDecsription.insertAdjacentHTML(
+  //   'afterbegin',
+  //   `
+  //       <h3 class="book-title">${title}</h3>
+  //       <p class="book-author">${author}</p>
+  //       <p class="book-price">${price}</p>`
+  // );
 }
 
 function setupAccordeon() {
@@ -138,26 +140,48 @@ function clearAccordeon() {
 }
 
 function increaseBookAmount(event) {
-  bookForm.querySelector('name="amount"').value++;
+  let amount = Number(document.querySelector('[name="amount"]').value);
+  amount++;
+  document.querySelector('[name="amount"]').value = amount;
+
+  if (document.querySelector('.btn-minus').disabled)
+    document.querySelector('.btn-minus').disabled = false;
 }
 
 function decreaseBookAmount(event) {
-  const amount = bookForm.querySelector('name="amount"').value--;
-  if (amount == 1) event.target.classList.contains('btn-minus').disabled = true;
+  let amount = Number(document.querySelector('[name="amount"]').value);
+  amount--;
+  document.querySelector('[name="amount"]').value = amount;
+  if (amount == 1) document.querySelector('.btn-minus').disabled = true;
+}
+
+function addToCart(event) {
+  const order = {
+    book: event.currentTarget.elements.book.value,
+    quantity: event.currentTarget.elements.amount.value,
+  };
+  console.log(order);
 }
 
 function onBookFormClick(event) {
-  console.log(`bookForm.querySelector("name='amount'")`);
-  // if (event.target.nodeName !== 'BUTTON') return;
-  // event.preventDefault();
+  if (event.target.nodeName !== 'BUTTON') return;
+  event.preventDefault();
 
-  // if (event.target.classList.contains('btn-minus')) decreaseBookAmount(event);
-  // if (event.target.classList.contains('btn-plus')) increaseBookAmount(event);
+  if (event.target.classList.contains('btn-add-to-cart')) addToCart(event);
+  else if (event.target.classList.contains('btn-minus'))
+    decreaseBookAmount(event);
+  else if (event.target.classList.contains('btn-plus'))
+    increaseBookAmount(event);
 }
 
 function onBookFormSubmit(event) {
-  console.log(event.target.elements);
-  // event.preventDefault();
+  event.preventDefault();
+  const order = {
+    book: event.target.elements.book.value,
+    quantity: event.target.elements.amount.value,
+  };
+  console.log(order);
+  alert('Дякуємо за покупку');
 }
 
 export function onBookClick(event) {
