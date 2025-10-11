@@ -1,5 +1,6 @@
 .hero {
   overflow: hidden;
+  padding-bottom: 32px;
 }
 
 .hero-swiper {
@@ -78,16 +79,44 @@
 }
 
 .swiper-button-disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  background-color: #777;
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  cursor: none;
+  background: var(--color-scheme-3-foreground);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.swiper-button-disabled:focus {
+  background: #b80b0b;
 }
 
 .hero-arrow-icon {
+  fill: var(--color-scheme-3-accent);
   display: block;
-
   width: 24px;
   height: 24px;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: var(--color-scheme-1-background);
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  cursor: pointer;
+}
+.swiper-button-prev:hover .hero-arrow-icon,
+.swiper-button-next:hover .hero-arrow-icon {
+  fill: var(--color-scheme-1-text);
+}
+
+.swiper-button-prev:active,
+.swiper-button-next:active {
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  background: var(--color-bamboo-darker);
+}
+
+.swiper-button-prev:active .hero-arrow-icon,
+.swiper-button-next:active .hero-arrow-icon {
+  fill: #fff9f9;
 }
 
 .hero-title {
@@ -102,7 +131,6 @@
 @media screen and (min-width: 768px) {
   .hero-slide-cover-layers {
     bottom: 32px;
-
     left: 40px;
   }
 
@@ -163,7 +191,6 @@
 @media screen and (min-width: 1440px) {
   .hero-slide-cover-layers {
     bottom: 56px;
-
     left: 56px;
   }
 
@@ -180,11 +207,17 @@
   .hero-slide2-cover-title,
   .hero-slide3-cover-title,
   .hero-slide4-cover-title {
-    font: 600 32px / 1.2 var(--font-family);
+    font: 600 52px / 1.2 var(--font-family);
     letter-spacing: -0.01em;
     color: var(--color-scheme-3-accent);
   }
 
+  .hero-slide1-cover-title,
+  .hero-slide2-cover-title {
+    width: 392px;
+  }
+
+  .hero-slide3-cover-title,
   .hero-slide4-cover-title {
     width: 562px;
   }
@@ -196,5 +229,11 @@
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .hero-title {
+    font: 600 52px / 1.2 var(--font-family);
+    letter-spacing: -0.01em;
+    color: var(--color-scheme-1-text);
   }
 }
