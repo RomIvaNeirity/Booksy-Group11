@@ -12,7 +12,6 @@ const bookModal = document.querySelector('.book-modal');
 async function showBook(bookId) {
   try {
     const bookData = await BooksAPI.fetchBookById(bookId);
-    // console.log(bookData);
     renderBook(bookData);
     bookModalFullscreen.classList.add('is-opened');
 
@@ -59,7 +58,7 @@ function renderBook({ _id, book_image, title, author, price, description }) {
       <div class="book-desc">
         <h3 class="book-title">${title}</h3>
         <p class="book-author">${author}</p>
-        <p class="book-price">${price}</p>
+        <p class="book-price">&#36;${price}</p>
         <form class="book-form">
           <input type="hidden" name="book" value="${_id}" />
           <div class="book-amount-wrapper">
@@ -184,26 +183,6 @@ function onBookFormSubmit(event) {
   };
   console.log(order);
   alert('Дякуємо за покупку');
-}
-
-function blockScroll(event) {
-  event.preventDefault();
-}
-
-function blockScrollByKeys(event) {
-  if (
-    [
-      'ArrowUp',
-      'ArrowDown',
-      'PageUp',
-      'PageDown',
-      'Home',
-      'End',
-      'Space',
-    ].includes(event.key)
-  ) {
-    event.preventDefault();
-  }
 }
 
 function disableScroll() {
