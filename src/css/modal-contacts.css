@@ -116,6 +116,23 @@
   color: #fff;
 }
 
+.modal-contacts-submit-btn:hover,
+.modal-contacts-submit-btn:focus {
+  border: 1px solid #0b0500;
+  background-color: #ea8d50;
+  color: #0b0500;
+}
+
+.modal-contacts-submit-btn:active {
+  background-color: #b44a04;
+}
+
+.modal-contacts-submit-btn:disabled {
+  border: 1px solid #0b0500;
+  color: #0b0500;
+  opacity: 0.2;
+}
+
 @media screen and (min-width: 768px) {
   .modal-contacts {
     width: 704px;
