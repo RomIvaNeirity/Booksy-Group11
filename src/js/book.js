@@ -4,124 +4,77 @@ import 'accordion-js/dist/accordion.min.css';
 import BooksAPI from './books-api';
 
 const bookModalFullscreen = document.querySelector('.book-modal-layer');
-// const bookDecsription = document.querySelector('.book-desc');
-// const bookImg = document.querySelector('.book-img-container');
-// const bookDetails = document.querySelector("[data-category='details']");
+const bookDecsription = document.querySelector('.book-desc-wrapper');
+const bookImg = document.querySelector('.book-img-container');
+const bookDetails = document.querySelector("[data-category='details']");
 const bookModal = document.querySelector('.book-modal');
+const bookModalCloseBtn = document.querySelector('.btn-close-modal');
+const bookForm = document.querySelector('.book-form');
+const bookIdInput = document.querySelector('.book-id-input');
 
 async function showBook(bookId) {
   try {
     const bookData = await BooksAPI.fetchBookById(bookId);
     renderBook(bookData);
-    bookModalFullscreen.classList.add('is-opened');
-
-    bookModalFullscreen.addEventListener('click', closeModal);
-    document.addEventListener('keydown', closeModal);
-
-    const bookForm = document.querySelector('.book-form');
-    bookForm.addEventListener('click', onBookFormClick);
-    bookForm.addEventListener('submit', onBookFormSubmit);
-    disableScroll();
-
-    setupAccordeon();
+    openModal();
   } catch (error) {
     console.log(error);
     return;
   }
 }
 
-function closeModal(event) {
+function openModal() {
+  bookModalFullscreen.classList.add('is-opened');
+
+  bookModalFullscreen.addEventListener('click', closeModalByClick);
+  bookModalCloseBtn.addEventListener('click', closeModalByClick);
+  document.addEventListener('keydown', closeModalByKey);
+
+  bookForm.addEventListener('submit', onBookFormSubmit);
+  bookForm.addEventListener('click', onBookFormClick);
+  disableScroll();
+
+  setupAccordeon();
+}
+
+function closeModal() {
+  bookModalFullscreen.classList.remove('is-opened');
+
+  bookModalFullscreen.removeEventListener('click', closeModal);
+  bookModalCloseBtn.removeEventListener('click', closeModalByClick);
+  document.removeEventListener('keydown', closeModal);
+
+  bookForm.removeEventListener('click', onBookFormClick);
+  bookForm.removeEventListener('submit', onBookFormSubmit);
+  enableScroll();
+
+  clearAccordeon();
+}
+
+function closeModalByClick(event) {
   if (
-    event.target.classList.contains('btn-close-modal') ||
-    event.target.classList.contains('book-modal-layer') ||
-    event.code === 'Escape'
-  ) {
-    bookModalFullscreen.classList.remove('is-opened');
+    (event.currentTarget.classList.contains('book-modal-layer') &&
+      event.target === event.currentTarget) ||
+    event.currentTarget === bookModalCloseBtn
+  )
+    closeModal();
+}
 
-    bookModalFullscreen.removeEventListener('click', closeModal);
-    document.removeEventListener('keydown', closeModal);
-
-    const bookForm = document.querySelector('.book-form');
-    bookForm.removeEventListener('click', onBookFormClick);
-    bookForm.removeEventListener('submit', onBookFormSubmit);
-    enableScroll();
-
-    clearAccordeon();
-  }
+function closeModalByKey(event) {
+  if (event.code === 'Escape') closeModal();
 }
 
 function renderBook({ _id, book_image, title, author, price, description }) {
-  bookModal.innerHTML = `<div class="book-info-container">
-      <div class="book-img-container">
-        <img class="book-img" src="${book_image}" alt="${title}">
-      </div>
-      <div class="book-desc">
+  bookImg.innerHTML = `<img class="book-img" src="${book_image}" alt="">`;
+  bookDetails.textContent = description.length
+    ? description
+    : title + ' by ' + author;
+  bookDecsription.innerHTML = `
         <h3 class="book-title">${title}</h3>
         <p class="book-author">${author}</p>
-        <p class="book-price">&#36;${price}</p>
-        <form class="book-form">
-          <input type="hidden" name="book" value="${_id}" />
-          <div class="book-amount-wrapper">
-            <button class="btn btn-secondary btn-minus" type="button" disabled>-</button>
-            <input type="number" name="amount" id="amount" value="1" disabled />
-            <button class="btn btn-secondary btn-plus" type="button">+</button>
-          </div>
-          <div class="book-action-wrapper">
-            <button class="btn btn-add-to-cart" type="button">Add to cart</button>
-            <button class="btn btn-secondary" type="submit">Buy now</button>
-          </div>
-        </form>
-        <ul class="accordion-container">
-          <li class="ac">
-            <h4 class="ac-header">
-              <button type="button" class="ac-trigger">Details</button>
-            </h4>
-            <div class="ac-panel">
-              <p class="ac-text" data-category="details">
-                ${description.length ? description : title + ' by ' + author}
-              </p>
-            </div>
-          </li>
-          <li class="ac">
-            <h4 class="ac-header">
-              <button type="button" class="ac-trigger">Shipping</button>
-            </h4>
-            <div class="ac-panel">
-              <p class="ac-text" data-category="shipping">
-                We ship across the United States within 2–5 business days. All
-                orders are processed through USPS or a reliable courier service.
-                Enjoy free standard shipping on orders over $50.
-              </p>
-            </div>
-          </li>
-          <li class="ac">
-            <h4 class="ac-header">
-              <button type="button" class="ac-trigger">Returns</button>
-            </h4>
-            <div class="ac-panel">
-              <p class="ac-text" data-category="returns">
-                You can return an item within 14 days of receiving your order,
-                provided it hasn’t been used and is in its original condition.
-                To start a return, please contact our support team — we’ll guide
-                you through the process quickly and hassle-free.
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <button class="btn btn-secondary btn-close-modal" type="button">x</button>`;
-
+        <p class="book-price">&#36;${price}</p>`;
+  bookIdInput.value = _id;
   return;
-  // bookImg.innerHTML = `<img class="book-img" src="${book_image}" alt="">`;
-  // if (description.length) bookDetails.textContent = description;
-  // bookDecsription.insertAdjacentHTML(
-  //   'afterbegin',
-  //   `
-  //       <h3 class="book-title">${title}</h3>
-  //       <p class="book-author">${author}</p>
-  //       <p class="book-price">${price}</p>`
-  // );
 }
 
 function setupAccordeon() {
@@ -153,7 +106,7 @@ function decreaseBookAmount(event) {
   let amount = Number(document.querySelector('[name="amount"]').value);
   amount--;
   document.querySelector('[name="amount"]').value = amount;
-  if (amount == 1) document.querySelector('.btn-minus').disabled = true;
+  if (amount == 0) document.querySelector('.btn-minus').disabled = true;
 }
 
 function addToCart(event) {
@@ -161,11 +114,14 @@ function addToCart(event) {
     book: event.currentTarget.elements.book.value,
     quantity: event.currentTarget.elements.amount.value,
   };
+  if (order.quantity === '0')
+    console.log('Book is not added because of the 0 quantity:');
   console.log(order);
 }
 
 function onBookFormClick(event) {
   if (event.target.nodeName !== 'BUTTON') return;
+  console.log('click', event.target);
   event.preventDefault();
 
   if (event.target.classList.contains('btn-add-to-cart')) addToCart(event);
@@ -176,6 +132,7 @@ function onBookFormClick(event) {
 }
 
 function onBookFormSubmit(event) {
+  console.log('submit', event.target);
   event.preventDefault();
   const order = {
     book: event.target.elements.book.value,

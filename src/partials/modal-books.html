@@ -5,11 +5,18 @@
         <img src="" alt="" />
       </div>
       <div class="book-desc">
-        <h3 class="book-title"></h3>
-        <p class="book-author"></p>
-        <p class="book-price"></p>
+        <div class="book-desc-wrapper">
+          <h3 class="book-title">No title</h3>
+          <p class="book-author">No author</p>
+          <p class="book-price">&#36;0.00</p>
+        </div>
         <form class="book-form">
-          <input type="hidden" name="book" value="643282b2e85766588626a0ee" />
+          <input
+            class="book-id-input"
+            type="hidden"
+            name="book"
+            value="643282b2e85766588626a0ee"
+          />
           <div class="book-amount-wrapper">
             <button class="btn btn-secondary btn-minus" type="button">-</button>
             <input type="number" name="amount" id="amount" value="1" disabled />
@@ -61,6 +68,10 @@
         </ul>
       </div>
     </div>
-    <button class="btn btn-secondary btn-close-modal" type="button">x</button>
+    <button class="btn btn-secondary btn-close-modal" type="button">
+      <svg class="mob-close-icon" width="12" height="12">
+        <use href="/img/icons.svg#icon-icon-close" />
+      </svg>
+    </button>
   </div>
 </div>
