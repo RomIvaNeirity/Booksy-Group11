@@ -1,6 +1,6 @@
 import BooksAPI from './books-api.js';
 import BooksRenderer from './books-render.js';
-import { onBookClick } from './book.js';
+import { onBookClick } from './book-modal.js';
 
 let currentCategory = '';
 const booksPerPage = window.innerWidth >= 768 ? 24 : 10;
