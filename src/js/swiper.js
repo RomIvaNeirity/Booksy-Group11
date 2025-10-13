@@ -70,15 +70,15 @@ export const feedbacksSwiper = new Swiper('.feedback-swiper', {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      slidesPerGroup: 4,
+      slidesPerGroup: 1,
     },
     768: {
       slidesPerView: 2,
-      slidesPerGroup: 4,
+      slidesPerGroup: 2,
     },
     1440: {
       slidesPerView: 3,
-      slidesPerGroup: 4,
+      slidesPerGroup: 3,
     },
   },
 });
