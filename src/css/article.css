@@ -1,5 +1,6 @@
 .article-section {
-  padding: 64px 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
   display: flex;
   flex-direction: column;
   gap: 32px;
