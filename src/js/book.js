@@ -1,16 +1,26 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 import BooksAPI from './books-api';
 
 const bookModalFullscreen = document.querySelector('.book-modal-layer');
 const bookDecsription = document.querySelector('.book-desc-wrapper');
 const bookImg = document.querySelector('.book-img-container');
 const bookDetails = document.querySelector("[data-category='details']");
-const bookModal = document.querySelector('.book-modal');
 const bookModalCloseBtn = document.querySelector('.btn-close-modal');
-const bookForm = document.querySelector('.book-form');
 const bookIdInput = document.querySelector('.book-id-input');
+const bookForm = document.querySelector('.book-form');
+const bookFormAmountContainer = document.querySelector('.book-amount-wrapper');
+const bookFormAddBtn = document.querySelector('.btn-add-to-cart');
+const bookFormBuyBtn = document.querySelector('.btn-buy');
+
+const accordion = new Accordion('.accordion-container', {
+  duration: 400,
+  showMultiple: true,
+});
 
 async function showBook(bookId) {
   try {
@@ -31,7 +41,8 @@ function openModal() {
   document.addEventListener('keydown', closeModalByKey);
 
   bookForm.addEventListener('submit', onBookFormSubmit);
-  bookForm.addEventListener('click', onBookFormClick);
+  bookFormAmountContainer.addEventListener('click', onBookFormClick);
+  bookFormAddBtn.addEventListener('click', onBookFormClick);
   disableScroll();
 
   setupAccordeon();
@@ -44,8 +55,9 @@ function closeModal() {
   bookModalCloseBtn.removeEventListener('click', closeModalByClick);
   document.removeEventListener('keydown', closeModal);
 
-  bookForm.removeEventListener('click', onBookFormClick);
   bookForm.removeEventListener('submit', onBookFormSubmit);
+  bookFormAmountContainer.removeEventListener('click', onBookFormClick);
+  bookFormAddBtn.removeEventListener('click', onBookFormClick);
   enableScroll();
 
   clearAccordeon();
@@ -78,18 +90,11 @@ function renderBook({ _id, book_image, title, author, price, description }) {
 }
 
 function setupAccordeon() {
-  const accordion = new Accordion('.accordion-container', {
-    duration: 400,
-    showMultiple: true,
-  });
   accordion.attachEvents();
 }
 
 function clearAccordeon() {
-  const accordion = new Accordion('.accordion-container', {
-    duration: 400,
-    showMultiple: true,
-  });
+  accordion.closeAll();
   accordion.detachEvents();
 }
 
@@ -98,21 +103,27 @@ function increaseBookAmount(event) {
   amount++;
   document.querySelector('[name="amount"]').value = amount;
 
-  if (document.querySelector('.btn-minus').disabled)
+  if (amount === 1) {
     document.querySelector('.btn-minus').disabled = false;
+    bookFormBuyBtn.disabled = false;
+  }
 }
 
 function decreaseBookAmount(event) {
   let amount = Number(document.querySelector('[name="amount"]').value);
   amount--;
   document.querySelector('[name="amount"]').value = amount;
-  if (amount == 0) document.querySelector('.btn-minus').disabled = true;
+  if (amount === 0) {
+    document.querySelector('.btn-minus').disabled = true;
+    bookFormBuyBtn.disabled = true;
+  }
 }
 
 function addToCart(event) {
+  const form = event.target.closest('.book-form');
   const order = {
-    book: event.currentTarget.elements.book.value,
-    quantity: event.currentTarget.elements.amount.value,
+    book: form.elements.book.value,
+    quantity: form.elements.amount.value,
   };
   if (order.quantity === '0')
     console.log('Book is not added because of the 0 quantity:');
@@ -121,7 +132,6 @@ function addToCart(event) {
 
 function onBookFormClick(event) {
   if (event.target.nodeName !== 'BUTTON') return;
-  console.log('click', event.target);
   event.preventDefault();
 
   if (event.target.classList.contains('btn-add-to-cart')) addToCart(event);
@@ -132,14 +142,19 @@ function onBookFormClick(event) {
 }
 
 function onBookFormSubmit(event) {
+  const form = event.target.elements;
   console.log('submit', event.target);
   event.preventDefault();
   const order = {
-    book: event.target.elements.book.value,
-    quantity: event.target.elements.amount.value,
+    book: form.book.value,
+    title: bookModalFullscreen.querySelector('.book-title').textContent,
+    quantity: form.amount.value,
   };
   console.log(order);
-  alert('Дякуємо за покупку');
+  iziToast.show({
+    title: 'Дякуємо за покупку',
+    message: `${order.title} x${order.quantity}`,
+  });
 }
 
 function disableScroll() {
