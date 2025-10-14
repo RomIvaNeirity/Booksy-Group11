@@ -152,6 +152,7 @@ books-section {
     flex-wrap: wrap;
     row-gap: 40px;
     column-gap: 24px;
+    align-items: stretch;
   }
   .book-item {
     width: calc((100% - 24px) / 2);
@@ -164,5 +165,19 @@ books-section {
 @media only screen and (min-width: 1440px) {
   .book-item {
     width: calc((100% - 3 * 24px) / 4);
+  }
+
+  .books-section .container {
+    display: flex;
+    gap: 24px;
+  }
+
+  .books-section .wrap {
+    padding: 32px 0px 0px;
+    width: 308px;
+  }
+
+  .book-cards-wrapper {
+    width: calc(100% - 24px);
   }
 }
