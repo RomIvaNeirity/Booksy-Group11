@@ -21,9 +21,9 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/Booksy-Group11/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/Booksy-Group11/assets/vendor-DLvIiUC7.js">
-    <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/vendor-4GygDk8N.css">
-    <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/index-DExgb4lS.css">
+    <link rel="modulepreload" crossorigin href="/Booksy-Group11/assets/vendor-FszVT6nW.js">
+    <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/vendor-C1NeuIVz.css">
+    <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/index-CUlyWpaD.css">
   </head>
   <body>
     
@@ -341,57 +341,58 @@
   </div>
 </section>
 
-      <section class="books-section">
-  <h1 class="visually-hidden">Trending books</h1>
-  <div class="section-header">
-    <h2 class="section-subtitle">Books</h2>
-    <div class="books-count">
-      Showing <span id="showing-count">0</span> of
-      <span id="total-count">0</span>
+      <section class="books-section" id="books">
+  <div class="container">
+    <h2 class="visually-hidden">Trending books</h2>
+    <div class="wrap">
+      <div class="section-header">
+        <h3 class="section-subtitle">Books</h3>
+        <div class="books-count">
+          Showing <span id="showing-count">0</span> of
+          <span id="total-count">0</span>
+        </div>
+      </div>
+      <div class="filters-container">
+        <ul class="filters-list" id="filters-list"></ul>
+      </div>
     </div>
-  </div>
-  <div class="filters-container">
-    <ul class="filters-list" id="filters-list"></ul>
-  </div>
-  <ul class="books-list" id="books-list"></ul>
-  <div class="show-more-container">
-    <button class="show-more-btn" id="show-more-btn">Show More</button>
+    <div class="book-cards-wrapper">
+      <ul class="books-list" id="books-list"></ul>
+      <div class="show-more-container">
+        <button class="btn show-more-btn" id="show-more-btn">Show More</button>
+      </div>
+    </div>
   </div>
 </section>
 
       <section class="feedbacks-section" id="feedbacks">
-            <div class="container-feedback container">
-                <h2 class="feedback-title">Customer Feedbacks</h2>
-                <p class="feedback-text">See what our readers are saying about us!</p>
-            
-                <div class="swiper feedback-swiper">
-            
-                    <ul class="swiper-wrapper feedback-list">
-                    </ul>
+  <div class="container-feedback container">
+    <h2 class="feedback-title">Customer Feedbacks</h2>
+    <p class="feedback-text">See what our readers are saying about us!</p>
 
-                    <div class="swiper-control-feedbacks">
-    
-                        <div class="swiper-pagination swiper-pagination-feedbacks"></div>
-    
-                        <div class="swiper-button-feedbacks">
-                            <button class="swiper-button-prev  button-feedbacks-prev">
-                                <svg class="feedbacks-icon">
-                                    <use href="/Booksy-Group11/assets/icons-BnXy7b4K.svg#icon-left-arrow"></use>
-                                </svg>
-                                </button>
-                            <button class="swiper-button-next button-feedbacks-next">
-                                <svg class="feedbacks-icon" >
-                                    <use href="/Booksy-Group11/assets/icons-BnXy7b4K.svg#icon-right-arrow"></use>
-                                </svg>
-    
-                                </button>
-                            </div>
-                    </div>
+    <div class="swiper feedback-swiper">
+      <ul class="swiper-wrapper feedback-list"></ul>
 
+      <div class="swiper-control-feedbacks">
+        <div class="swiper-pagination swiper-pagination-feedbacks"></div>
 
-                </div>
-            </div>
+        <div class="swiper-button-feedbacks">
+          <button class="swiper-button-prev button-feedbacks-prev">
+            <svg class="feedbacks-icon">
+              <use href="/Booksy-Group11/assets/icons-BnXy7b4K.svg#icon-left-arrow"></use>
+            </svg>
+          </button>
+          <button class="swiper-button-next button-feedbacks-next">
+            <svg class="feedbacks-icon">
+              <use href="/Booksy-Group11/assets/icons-BnXy7b4K.svg#icon-right-arrow"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
       <section class="events-section container" id="events">
   <p class="events-label">Events</p>
   <h2 class="events-title">Upcoming Events at Booksy</h2>
