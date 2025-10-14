@@ -124,6 +124,7 @@ body.modal-open {
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
+  cursor: pointer;
 }
 
 .modal-contacts-submit-btn:hover,
