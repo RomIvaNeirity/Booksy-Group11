@@ -1,5 +1,7 @@
 import Swiper from 'swiper';
+
 import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -45,3 +47,40 @@ export const swiperEvents = new Swiper('.events-swiper', {
     1440: { slidesPerView: 3, spaceBetween: 24 },
   },
 });
+
+
+export const feedbacksSwiper = new Swiper('.feedback-swiper', {
+  modules: [Navigation, Pagination, Keyboard],
+  speed:600,
+  spaceBetween: 24,
+  loop: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
+  pagination: {
+    el: '.swiper-pagination-feedbacks',
+    clickable: true,
+    dynamicBullets: false,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+    },
+    768: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+    },
+    1440: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+    },
+  },
+});
+
+
