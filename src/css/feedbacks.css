@@ -67,6 +67,7 @@
 .swiper-control-feedbacks{
     margin-top: 32px;
     display: flex;
+    gap: 8px;
     
     align-items: center;
     flex-direction: row-reverse;
@@ -109,8 +110,8 @@
     fill:#0b0500;
 }
 
-/*.swiper-button-prev:active,
-.swiper-button-next:active{
+.button-feedbacks-prev:active,
+.button-feedbacks-next:active{
     background-color: #5a2502;
 }
 
@@ -118,8 +119,9 @@
 .swiper-button-next:active .feedbacks-icon{
     fill: #fff;
 }
-*/
-.swiper-button-disabled{
+
+.swiper-button-disabled.button-feedbacks-next,
+.swiper-button-disabled.button-feedbacks-prev{
     border: 1px solid rgba(11, 5, 0, 0.15);
     background: #e15d05;
     opacity: 0.2;
@@ -132,13 +134,20 @@
 
 
 .swiper-pagination.swiper-pagination-feedbacks {
-
-    width: 56px;
     display: flex;
     align-items: center;
     bottom: var(--swiper-pagination-bottom, 16px) !important;
+    
 
+    &.swiper-pagination-bullets-dynamic {
+        left: 0 !important;
+        transform: none !important;
+        white-space: nowrap;
+        width: 60% !important;
+    }
 }
+
+
 
 .swiper-pagination-feedbacks .swiper-pagination-bullet-active{
     background-color:#0b0500;
