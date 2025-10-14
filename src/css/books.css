@@ -1,4 +1,5 @@
-books-section {
+.books-section {
+  padding: 32px 0;
 }
 .visually-hidden {
   position: absolute;
@@ -173,7 +174,6 @@ books-section {
   }
 
   .books-section .wrap {
-    padding: 32px 0px 0px;
     width: 308px;
   }
 
