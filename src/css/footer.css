@@ -17,6 +17,16 @@
   gap: 32px;
 }
 
+.footer-nav-link {
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:focus {
+  opacity: 0.8;
+}
+
 .footer-form-wrapper {
   padding-top: 32px;
 }
