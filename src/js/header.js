@@ -6,29 +6,28 @@ export function initMobileMenu() {
 
   openBtn.addEventListener('click', () => {
     mobileMenu.classList.add('is-open');
-    body.classList.add('menu-open');
+    body.style.overflow = 'hidden';
   });
 
   closeBtn.addEventListener('click', () => {
     mobileMenu.classList.remove('is-open');
-    body.classList.remove('menu-open');
+    body.style.overflow = '';
   });
 
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('is-open');
-      body.classList.remove('menu-open');
-    });
-  });
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', event => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        event.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      if (mobileMenu.contains(link)) {
         mobileMenu.classList.remove('is-open');
-        body.classList.remove('menu-open');
+        body.style.overflow = '';
       }
     });
   });
