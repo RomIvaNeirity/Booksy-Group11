@@ -17,6 +17,16 @@
   gap: 32px;
 }
 
+.footer-nav-link {
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:focus {
+  opacity: 0.8;
+}
+
 .footer-form-wrapper {
   padding-top: 32px;
 }
@@ -33,10 +43,13 @@
 .footer-input-label {
 }
 .footer-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 4px;
   padding: 8px 12px;
-  width: auto;
   height: 48px;
   background-color: rgba(11, 5, 0, 0.05);
   outline: transparent;
@@ -93,6 +106,23 @@
 
 .footer-bottom {
   padding-top: 32px;
+}
+
+@media screen and (max-width: 374px) {
+  .footer-modal-form {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .footer-input {
+    width: 100%;
+    flex: 1;
+  }
+
+  .footer-btn {
+    flex-shrink: 1;
+    padding: 12px 16px;
+  }
 }
 
 @media screen and (min-width: 768px) {
