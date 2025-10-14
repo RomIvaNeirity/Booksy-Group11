@@ -181,4 +181,8 @@
   .book-cards-wrapper {
     width: calc(100% - 24px);
   }
+
+  .book-image {
+    height: 322px;
+  }
 }
