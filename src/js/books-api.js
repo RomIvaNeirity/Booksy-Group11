@@ -1,39 +1,30 @@
+import axios from 'axios';
+
 export default class BooksAPI {
-  static BASE_URL = 'https://books-backend.p.goit.global/books';
+  static axiosInstance = axios.create({
+    baseURL: 'https://books-backend.p.goit.global',
+    timeout: 10000,
+  });
 
   static async fetchCategories() {
-    return this.#fetchData('/category-list', 'Error fetching categories');
+    const { data } = await this.axiosInstance.get('/books/category-list');
+    return data;
   }
 
   static async fetchTopBooks() {
-    return this.#fetchData('/top-books', 'Error fetching top books');
+    const { data } = await this.axiosInstance.get('/books/top-books');
+    return data;
   }
 
   static async fetchBooksByCategory(category) {
-    return this.#fetchData(
-      `/category?category=${encodeURIComponent(category)}`,
-      'Error fetching books by category'
-    );
+    const { data } = await this.axiosInstance.get('/books/category', {
+      params: { category },
+    });
+    return data;
   }
 
   static async fetchBookById(bookId) {
-    return this.#fetchData(`/${bookId}`, 'Error fetching book by ID');
-  }
-
-  static async #fetchData(endpoint, errorMessage) {
-    try {
-      const response = await fetch(`${this.BASE_URL}${endpoint}`);
-      console.log(`[FETCH] ${this.BASE_URL}${endpoint}`);
-
-      if (!response.ok) {
-        throw new Error(`${errorMessage}: ${response.status}`);
-      }
-
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(errorMessage, error);
-      throw error;
-    }
+    const { data } = await this.axiosInstance.get(`/books/${bookId}`);
+    return data;
   }
 }
