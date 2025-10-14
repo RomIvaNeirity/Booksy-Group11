@@ -1,13 +1,15 @@
-<div class="modal-contacts-overlay hidden">
-  <div class="modal-contacts">
-    <button type="button" class="modal-contacts-close-btn">
+<div class="modal-contacts-overlay hidden" id="modalBackdrop">
+  <div class="modal-contacts" id="contactsModal">
+    <button type="button" class="modal-contacts-close-btn" id="modalClose">
       <svg class="modal-contacts-close-icon" width="16" height="16">
-        <use href="../img/icons.svg#icon-icon-close"></use>
+        <use href="./img/icons.svg#icon-icon-close"></use>
       </svg>
     </button>
+
     <h2 class="modal-contacts-title">Register</h2>
-    <p class="modal-contacts-text">Cozy Book Club — “The Midnight Library”</p>
-    <form class="modal-contacts-form" >
+    <p class="modal-contacts-text"></p>
+
+    <form class="modal-contacts-form" id="contactsForm">
       <div class="modal-contacts-input-wrapper">
         <label class="modal-contacts-label">
           Name*
@@ -31,20 +33,19 @@
           />
           <span class="modal-contacts-error">This field is required</span>
         </label>
-       <label class="register-label">
-        Message
-        <textarea
-          name="message"
-          rows="8"
-          class="modal-contacts-textarea"
-          placeholder="Type your message..."
-        ></textarea>
-        <span class="modal-contacts-error">Error text</span>
-      </label>
-    
+        <label class="modal-contacts-label">
+          Message
+          <textarea
+            name="message"
+            rows="8"
+            class="modal-contacts-textarea"
+            placeholder="Type your message..."
+          ></textarea>
+          <span class="modal-contacts-error">Error text</span>
+        </label>
       </div>
-      <button class="modal-contacts-submit-btn" type="submit">
-        Register
-      </button>
+
+      <button class="modal-contacts-submit-btn" type="submit">Register</button>
+    </form>
   </div>
 </div>
