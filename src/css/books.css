@@ -121,13 +121,22 @@
   display: flex;
   justify-content: space-between;
 }
+.book-name-wrapper {
+  max-width: calc(340px - 70px);
+}
 .book-title {
   font-weight: 600;
   font-size: 16px;
   text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .book-author {
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .book-price {
@@ -184,5 +193,9 @@
 
   .book-image {
     height: 322px;
+  }
+
+  .book-name-wrapper {
+    max-width: calc(240px - 70px);
   }
 }
