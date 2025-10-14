@@ -1,15 +1,20 @@
 import BooksAPI from './books-api.js';
 import BooksRenderer from './books-render.js';
+import { onBookClick } from './book-modal.js';
+
 let currentCategory = '';
 let booksPerPage = 10;
 let allBooks = [];
 let displayedBooks = 0;
+
 const booksList = document.getElementById('books-list');
 const filtersList = document.getElementById('filters-list');
 const showMoreBtn = document.getElementById('show-more-btn');
 const showingCount = document.getElementById('showing-count');
 const totalCount = document.getElementById('total-count');
+
 document.addEventListener('DOMContentLoaded', initBooksSection);
+
 async function initBooksSection() {
   updateBooksPerPage();
   await loadCategories();
@@ -17,6 +22,7 @@ async function initBooksSection() {
 }
 function setupListeners() {
   showMoreBtn.addEventListener('click', loadMoreBooks);
+  booksList.addEventListener('click', onBookClick);
 }
 
 function updateBooksPerPage() {

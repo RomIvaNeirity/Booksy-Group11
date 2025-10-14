@@ -22,4 +22,9 @@ export default class BooksAPI {
     });
     return data;
   }
+
+  static async fetchBookById(bookId) {
+    const { data } = await this.axiosInstance.get(`/books/${bookId}`);
+    return data;
+  }
 }
