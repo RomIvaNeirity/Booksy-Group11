@@ -73,6 +73,7 @@
   width: 95px;
   transition: color var(--time) var(--transition),
     fill var(--time) var(--transition);
+  cursor: pointer;
 }
 
 .events-register:hover,
