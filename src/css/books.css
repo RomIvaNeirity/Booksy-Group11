@@ -156,6 +156,10 @@ books-section {
   .book-item {
     width: calc((100% - 24px) / 2);
   }
+  .show-more-btn {
+    width: 342px;
+    margin: 0 auto;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .book-item {

@@ -1,4 +1,3 @@
-import './js/book-modal.js';
 import './js/books-main.js';
 import { heroSwiper } from './js/swiper.js';
 import { swiperEvents } from './js/swiper.js';
