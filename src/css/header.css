@@ -2,9 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 8px 0 4px;
   height: 64px;
-  padding-left: 4px;
-  padding-right: 8px;
 }
 
 .logo-icon {
@@ -13,6 +12,30 @@
 
 .nav {
   display: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link,
+.mob-nav-link {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-scheme-1-text);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.mob-nav-link {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.mob-nav-link:hover {
+  opacity: 0.8;
 }
 
 .mob-menu-btn,
@@ -30,16 +53,15 @@
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 1000;
   background-color: var(--color-bamboo-lightest);
+  z-index: 999;
   transform: translateX(100%);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s ease, opacity 0.3s ease;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 }
 
 .mobile-menu.is-open {
@@ -50,18 +72,12 @@
 }
 
 .mobile-menu .container {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.mobile-menu .header-container {
-  height: 64px;
-  padding-left: 4px;
-  padding-right: 8px;
+  margin: 0;
+  width: 100%;
 }
 
 .mob-nav-container {
-  margin-top: 16px;
+  padding-top: 16px;
 }
 
 .mob-nav-list {
@@ -71,49 +87,22 @@
   gap: 40px;
 }
 
-.nav-link,
-.mob-nav-link {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--color-scheme-1-text);
-  transition: opacity 0.3s ease;
+body.menu-open {
+  overflow: hidden;
 }
 
-.mob-nav-link {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.nav-link:active,
-.mob-nav-link:active {
-  opacity: 0.8;
-}
-
-.nav-link:disabled,
-.mob-nav-link:disabled {
-  opacity: 0.2;
-}
-
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .header-container {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
     height: 72px;
-  }
-
-  .mob-menu-btn,
-  .mobile-menu {
-    display: none;
   }
 
   .nav {
     display: block;
   }
 
-  .nav-list {
-    display: flex;
-    align-items: center;
-    gap: 32px;
+  .mob-menu-btn,
+  .mobile-menu {
+    display: none;
   }
 }
