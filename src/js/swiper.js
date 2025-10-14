@@ -61,7 +61,8 @@ export const feedbacksSwiper = new Swiper('.feedback-swiper', {
   pagination: {
     el: '.swiper-pagination-feedbacks',
     clickable: true,
-    dynamicBullets: false,
+    dynamicBullets: true,
+    dynamicMainBullets: 4,
   },
   navigation: {
     nextEl: '.swiper-button-next',
@@ -79,6 +80,7 @@ export const feedbacksSwiper = new Swiper('.feedback-swiper', {
     1440: {
       slidesPerView: 3,
       slidesPerGroup: 3,
+      
     },
   },
 });
