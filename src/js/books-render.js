@@ -95,13 +95,15 @@ export default class BooksRenderer {
           }
         </div>
         <div class="book-details">
-          <h3 class="book-title">${this.truncateText(book.title, 50)}</h3>
-          <p class="book-author">${book.author || 'Unknown Author'}</p>
+          <div class="book-name-wrapper">
+            <h3 class="book-title">${this.truncateText(book.title, 50)}</h3>
+            <p class="book-author">${book.author || 'Unknown Author'}</p>
+          </div>
           <p class="book-price">${book.price ? `$${book.price}` : 'N/A'}</p>
-          <button class="learn-more-btn" data-id="${
-            book._id
-          }">Learn More</button>
         </div>
+        <button class="btn btn-secondary learn-more-btn" data-id="${
+          book._id
+        }">Learn More</button>
       </li>
     `;
   }
