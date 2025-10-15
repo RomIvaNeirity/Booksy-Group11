@@ -50,17 +50,13 @@
   color: white;
   border-color: #4a4a4a;
 }
+
 .dropdown-wrapper {
-  position: relative;
-  display: block;
   width: 100%;
 }
 .category-select {
+  appearance: base-select;
   width: 100%;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  box-sizing: border-box;
   padding: 12px 44px 12px 16px;
   border: 2px solid #dee2e6;
   border-radius: 8px;
@@ -69,23 +65,10 @@
   color: #0b0500;
   cursor: pointer;
 }
-.dropdown-arrow {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  fill: red !important;
-  color: #0b0500;
-  transition: transform 0.25s ease;
+::picker(select) {
+  appearance: base-select;
 }
-.dropdown-wrapper.open .dropdown-arrow {
-  transform: rotate(180deg);
-}
-.category-select:focus + .dropdown-arrow {
-  transform: translateY(-50%) rotate(180deg);
-  color: #000;
-}
+
 .books-list {
   list-style: none;
   display: flex;
