@@ -32,17 +32,7 @@ async function loadCategories() {
   try {
     showLoadingState('Loading categories...');
     const categories = await BooksAPI.fetchCategories();
-    const allowed = [
-      'Combined Print and E-Book Fiction',
-      'Combined Print and E-Book Nonfiction',
-      'Hardcover Fiction',
-      'Paperback Trade Fiction',
-      'Paperback Nonfiction',
-      'Advice How-To and Miscellaneous',
-      'Childrens Middle Grade Hardcover',
-    ];
-    const filtered = categories.filter(cat => allowed.includes(cat.list_name));
-    BooksRenderer.renderCategories(filtered, filtersList, category =>
+    BooksRenderer.renderCategories(categories, filtersList, category =>
       onCategoryChange(category)
     );
     onCategoryChange('All categories');
