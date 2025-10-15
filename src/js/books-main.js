@@ -8,7 +8,7 @@ let allBooks = [];
 let displayedBooks = 0;
 
 const booksList = document.getElementById('books-list');
-const filtersList = document.getElementById('filters-list');
+const filtersList = document.querySelector('.filters-container');
 const showMoreBtn = document.getElementById('show-more-btn');
 const showingCount = document.getElementById('showing-count');
 const totalCount = document.getElementById('total-count');
@@ -36,8 +36,9 @@ async function loadCategories() {
       onCategoryChange(category)
     );
     onCategoryChange('All categories');
-  } catch {
+  } catch (e) {
     showError('Could not load categories.');
+    console.log(e);
   }
 }
 function onCategoryChange(category) {

@@ -5,6 +5,8 @@ export default class BooksRenderer {
     this._categories = categoriesWithAll;
     this._onCategoryClick = onCategoryClick;
     this._container = container;
+    this._listContainer = this._container.querySelector('.filters-list');
+    this._selectContainer = this._container.querySelector('.dropdown-wrapper');
     this.#renderBasedOnScreen();
     window.addEventListener('resize', this.#handleResize.bind(this));
   }
@@ -16,30 +18,32 @@ export default class BooksRenderer {
   }
   static #renderBasedOnScreen() {
     this._isMobile = window.innerWidth < 768;
-    const container = this._container;
+    const listContainer = this._listContainer;
+    const selectContainer = this._selectContainer;
     const categories = this._categories;
     const onCategoryClick = this._onCategoryClick;
+
+    console.log(this._isMobile);
     if (this._isMobile) {
-      container.innerHTML = `
-    <div class="dropdown-wrapper">
+      selectContainer.classList.remove('no-display');
+      listContainer.classList.add('no-display');
+      selectContainer.innerHTML = `
     <select id="category-select" class="category-select" aria-label="book category">
       <option value="" disabled selected hidden>Categories</option>
       ${categories
         .map(c => `<option value="${c.list_name}">${c.list_name}</option>`)
         .join('')}
     </select>
-    <svg class="dropdown-arrow" width="24" height="24" viewBox="0 0 24 25">
-  <use href="src/img/icons.svg#dropdown-arrow"></use>
-</svg>
-  </div>
   `;
-      const select = container.querySelector('#category-select');
+      const select = selectContainer.querySelector('#category-select');
       onCategoryClick('All categories');
       select.addEventListener('change', e => {
         onCategoryClick(e.target.value);
       });
     } else {
-      container.innerHTML = categories
+      listContainer.classList.remove('no-display');
+      selectContainer.classList.add('no-display');
+      listContainer.innerHTML = categories
         .map(
           category => `
             <li
@@ -55,9 +59,9 @@ export default class BooksRenderer {
           `
         )
         .join('');
-      container.querySelectorAll('.filter-item').forEach(item => {
+      listContainer.querySelectorAll('.filter-item').forEach(item => {
         item.addEventListener('click', () => {
-          container
+          listContainer
             .querySelectorAll('.filter-item')
             .forEach(i => i.classList.remove('active'));
           item.classList.add('active');

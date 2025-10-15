@@ -185,3 +185,7 @@
     max-width: calc(240px - 70px);
   } */
 }
+
+.no-display {
+  display: none;
+}
