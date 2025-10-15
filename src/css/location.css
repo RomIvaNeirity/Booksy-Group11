@@ -1,5 +1,5 @@
 /* Styles for Mobile devices */
-.location-container {
+.location {
     padding-top: 64px;
     padding-bottom: 64px;
 }
@@ -58,7 +58,7 @@
     text-decoration-skip-ink: none;
 }
 
-.location-map {
+.location-map-container{
     height: 395px;
 }
 
