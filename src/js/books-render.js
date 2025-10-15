@@ -22,7 +22,7 @@ export default class BooksRenderer {
     if (this._isMobile) {
       container.innerHTML = `
     <div class="dropdown-wrapper">
-    <select id="category-select" class="category-select">
+    <select id="category-select" class="category-select" aria-label="book category">
       <option value="" disabled selected hidden>Categories</option>
       ${categories
         .map(c => `<option value="${c.list_name}">${c.list_name}</option>`)
@@ -42,7 +42,7 @@ export default class BooksRenderer {
       container.innerHTML = categories
         .map(
           category => `
-            <div
+            <li
               class="filter-item ${
                 category.list_name === 'All categories' ? 'active' : ''
               }"
@@ -51,7 +51,7 @@ export default class BooksRenderer {
               tabindex="0"
             >
               ${category.list_name}
-            </div>
+            </li>
           `
         )
         .join('');
