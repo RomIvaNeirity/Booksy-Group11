@@ -67,6 +67,9 @@
 }
 ::picker(select) {
   appearance: base-select;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  background: var(color-scheme-1-background);
 }
 
 .books-list {
