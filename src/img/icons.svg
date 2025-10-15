@@ -11,8 +11,8 @@
       <symbol id="icon-icon-close" viewBox="0 0 32 32">
         <path d="M27.179 0.918l-11.315 11.312-11.312-11.312-3.771 3.771 11.312 11.312-11.312 11.312 3.771 3.771 11.312-11.312 11.315 11.312 3.771-3.771-11.312-11.312 11.312-11.312-3.771-3.771z"></path>
       </symbol>
-      <symbol id="icon-menu-icon" viewBox="0 0 43 32">
-        <path d="M0 0h42.667v5.333h-42.667v-5.333zM10.667 13.333h32v5.333h-32v-5.333zM24 26.667h18.667v5.333h-18.667v-5.333z"></path>
+      <symbol id="icon-menu-icon" viewBox="0 0 32 32">
+        <path d="M0 0h32v5.333H0V0zm10.667 13.333h32v5.333h-32v-5.333zm13.333 13.334h18.667v5.333H24v-5.333z"></path>
       </symbol>
       <symbol id="icon-mail" viewBox="0 0 32 32">
         <path d="M27 5H5L3 8v16l2 3h22l2-3V8l-2-3zm0 3v1l-11 8L5 9V8h22zM5 24V12l10 8a1 1 0 0 0 2 0l10-8v12H5z"/>
