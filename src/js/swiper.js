@@ -2,7 +2,6 @@ import Swiper from 'swiper';
 
 import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -23,12 +22,18 @@ export const heroSwiper = new Swiper('.hero-swiper', {
 });
 
 export const swiperEvents = new Swiper('.events-swiper', {
-  modules: [Navigation, Pagination],
+  modules: [Navigation, Pagination, Keyboard],
 
   speed: 350,
   slidesPerView: 'auto',
   spaceBetween: 16,
   watchOverflow: true,
+  loop: false,
+
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
 
   navigation: {
     nextEl: '.swiper-button-next',
@@ -48,10 +53,9 @@ export const swiperEvents = new Swiper('.events-swiper', {
   },
 });
 
-
 export const feedbacksSwiper = new Swiper('.feedback-swiper', {
   modules: [Navigation, Pagination, Keyboard],
-  speed:600,
+  speed: 600,
   spaceBetween: 24,
   loop: false,
   keyboard: {
@@ -80,9 +84,6 @@ export const feedbacksSwiper = new Swiper('.feedback-swiper', {
     1440: {
       slidesPerView: 3,
       slidesPerGroup: 3,
-      
     },
   },
 });
-
-
