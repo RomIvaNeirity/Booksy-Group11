@@ -122,7 +122,7 @@
   justify-content: space-between;
 }
 .book-name-wrapper {
-  max-width: calc(340px - 70px);
+  max-width: calc(100% - 70px);
 }
 .book-title {
   font-weight: 600;
@@ -195,7 +195,7 @@
     height: 322px;
   }
 
-  .book-name-wrapper {
+  /* .book-name-wrapper {
     max-width: calc(240px - 70px);
-  }
+  } */
 }
