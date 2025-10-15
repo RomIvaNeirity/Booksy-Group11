@@ -16,14 +16,31 @@
             type="hidden"
             name="book"
             value="643282b2e85766588626a0ee"
+            aria-label="internal Book code"
           />
           <div class="book-amount-wrapper">
-            <button class="btn btn-secondary btn-minus" type="button">-</button>
+            <button
+              class="btn btn-secondary btn-minus"
+              type="button"
+              aria-label="decreese book quantity"
+            >
+              -
+            </button>
             <input type="text" name="amount" id="amount" value="1" disabled />
-            <button class="btn btn-secondary btn-plus" type="button">+</button>
+            <button
+              class="btn btn-secondary btn-plus"
+              type="button"
+              aria-label="increese book quantity"
+            >
+              +
+            </button>
           </div>
           <div class="book-action-wrapper">
-            <button class="btn btn-add-to-cart" type="button">
+            <button
+              class="btn btn-add-to-cart"
+              type="button"
+              aria-label="add book to cart"
+            >
               Add to cart
             </button>
             <button class="btn btn-secondary btn-buy" type="submit">
@@ -70,7 +87,11 @@
         </ul>
       </div>
     </div>
-    <button class="btn btn-secondary btn-close-modal" type="button">
+    <button
+      class="btn btn-secondary btn-close-modal"
+      type="button"
+      aria-label="close book"
+    >
       <svg class="mob-close-icon" width="12" height="12">
         <use href="/img/icons.svg#icon-icon-close" />
       </svg>
