@@ -1,6 +1,6 @@
 .events-section {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding: 64px 0;
+
   transition: all 0.3s ease;
 }
 
@@ -11,12 +11,10 @@
   text-transform: capitalize;
   color: #0b0500;
   margin-bottom: 16px;
-  padding-top: 64px;
 }
 
 .events-title {
   font-size: 36px;
-  margin-top: 16px;
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: 16px;
@@ -36,17 +34,17 @@
 
 .events-img {
   border-radius: 16px !important;
-  margin-top: 0;
+  margin-bottom: 24px;
   transition: all 0.3s ease;
 }
 
 .events-subtitle {
-  margin-top: 24px;
   font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #0b0500;
+  margin-bottom: 0;
 }
 
 .events-place {
@@ -54,7 +52,7 @@
   font-size: 16px;
   line-height: 1.5;
   color: #0b0500;
-  margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .events-card-text {
@@ -63,16 +61,16 @@
   font-size: 16px;
   line-height: 1.5;
   color: #0b0500;
-  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 .events-register {
   display: flex;
-  margin-top: 24px;
   font-size: 16px;
   width: 95px;
   transition: color var(--time) var(--transition),
     fill var(--time) var(--transition);
+  cursor: pointer;
 }
 
 .events-register:hover,
@@ -82,13 +80,13 @@
   text-decoration: underline;
 }
 
-.swiper-slide:first-child .events-register {
-  margin-top: 24px;
+.swiper-slide:first-child .events-card-text {
+  margin-bottom: 24px;
 }
 
-.swiper-slide:nth-child(2) .events-register,
-.swiper-slide:nth-child(3) .events-register {
-  margin-top: 58px;
+.swiper-slide:nth-child(2) .events-card-text,
+.swiper-slide:nth-child(3) .events-card-text {
+  margin-bottom: 58px;
 }
 
 .events-controller {
@@ -193,7 +191,7 @@
   .events-item {
     min-width: 421px;
   }
-  .swiper-slide:nth-child(3) .events-register {
-    margin-top: 82px;
+  .swiper-slide:nth-child(3) .events-card-text {
+    margin-bottom: 82px;
   }
 }
