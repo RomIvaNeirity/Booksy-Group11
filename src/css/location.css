@@ -75,6 +75,10 @@
         margin-right: 32px;
     }
 
+    .location-container-list{
+        padding: 8px 0;
+    }
+
     .location-head-container,
     .location-container-list {
         padding-bottom: 80px;
