@@ -51,9 +51,9 @@ function openModal() {
 function closeModal() {
   bookModalFullscreen.classList.remove('is-opened');
 
-  bookModalFullscreen.removeEventListener('click', closeModal);
+  bookModalFullscreen.removeEventListener('click', closeModalByClick);
   bookModalCloseBtn.removeEventListener('click', closeModalByClick);
-  document.removeEventListener('keydown', closeModal);
+  document.removeEventListener('keydown', closeModalByKey);
 
   bookForm.removeEventListener('submit', onBookFormSubmit);
   bookFormAmountContainer.removeEventListener('click', onBookFormClick);
