@@ -71,6 +71,7 @@
   transition: color var(--time) var(--transition),
     fill var(--time) var(--transition);
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .events-register:hover,
@@ -137,8 +138,7 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-  transition: background-color var(--time) var(--transition),
-    color var(--time) var(--transition), border var(--time) var(--transition);
+  transition: background-color 0.3s ease;
 }
 
 .events-arrow-icon {

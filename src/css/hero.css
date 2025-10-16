@@ -61,6 +61,16 @@
   font: 400 8px / 1.5 var(--font-family);
   color: var(--color-white);
   background: var(--color-scheme-3-foreground);
+  transition: background-color 0.3s ease;
+}
+.hero-slide-cover-button:hover,
+.hero-slide-cover-button:focus {
+  border-color: var(--color-neutral-darkest);
+  background: var(--color-neutral-darkest);
+}
+.hero-slide-cover-button:active {
+  border-color: var(--color-bamboo-dark);
+  background: var(--color-bamboo-dark);
 }
 
 .hero-slider-button-wrapper {
@@ -76,6 +86,7 @@
   width: 48px;
   height: 48px;
   background: var(--color-scheme-3-foreground);
+  transition: background-color 0.3s ease;
 }
 
 .swiper-button-disabled {

@@ -95,6 +95,7 @@ body {
   min-height: 40px;
   padding: 20px 8px;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 .btn:hover,
 .btn:focus {
@@ -136,6 +137,7 @@ body {
 .link {
   font-size: 16px;
   color: var(--color-neutral-darkest);
+  transition: opacity 0.3s ease;
 }
 
 .link:disabled {
