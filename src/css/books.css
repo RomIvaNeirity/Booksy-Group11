@@ -35,20 +35,19 @@
 }
 .filter-item {
   padding: 8px 16px;
-  background-color: #f1f3f4;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-bamboo-light);
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 .filter-item:hover {
-  background-color: #f0f0f0;
+  background-color: var(--color-bamboo-lighter);
 }
 .filter-item.active {
-  background-color: #4a4a4a;
-  color: white;
-  border-color: #4a4a4a;
+  background-color: var(--color-scheme-3-background);
+  color: var(--color-white);
 }
 
 .dropdown-wrapper {
