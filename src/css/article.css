@@ -61,4 +61,10 @@
     align-items: center;
     flex-direction: row;
   }
+
+  .article-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
 }
