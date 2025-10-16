@@ -15,8 +15,6 @@ var se=Object.defineProperty;var N=t=>{throw TypeError(t)};var ae=(t,e,o)=>e in 
   `;const n=o.querySelector("#category-select");s("All categories"),n.addEventListener("change",i=>{s(i.target.value)})}else e.classList.remove("no-display"),o.classList.add("no-display"),e.innerHTML=a.map(n=>`
             <li
               class="filter-item ${n.list_name==="All categories"?"active":""}"
-              data-category="${n.list_name}"
-              role="button"
               tabindex="0"
             >
               ${n.list_name}
