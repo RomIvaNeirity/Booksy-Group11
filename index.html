@@ -23,7 +23,7 @@
     <script type="module" crossorigin src="/Booksy-Group11/index.js"></script>
     <link rel="modulepreload" crossorigin href="/Booksy-Group11/assets/vendor-FszVT6nW.js">
     <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/vendor-C1NeuIVz.css">
-    <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/index-CW2gQLPW.css">
+    <link rel="stylesheet" crossorigin href="/Booksy-Group11/assets/index-CI6o7GbP.css">
   </head>
   <body>
     
@@ -87,7 +87,7 @@
   <div class="book-modal">
     <div class="book-info-container">
       <div class="book-img-container">
-        <img src="" alt="" />
+        <!-- <img src="" alt="" /> -->
       </div>
       <div class="book-desc">
         <div class="book-desc-wrapper">
@@ -103,12 +103,28 @@
             value="643282b2e85766588626a0ee"
           />
           <div class="book-amount-wrapper">
-            <button class="btn btn-secondary btn-minus" type="button">-</button>
-            <input type="number" name="amount" id="amount" value="1" disabled />
-            <button class="btn btn-secondary btn-plus" type="button">+</button>
+            <button
+              class="btn btn-secondary btn-minus"
+              type="button"
+              aria-label="decreese book quantity"
+            >
+              -
+            </button>
+            <input type="text" name="amount" id="amount" value="1" disabled />
+            <button
+              class="btn btn-secondary btn-plus"
+              type="button"
+              aria-label="increese book quantity"
+            >
+              +
+            </button>
           </div>
           <div class="book-action-wrapper">
-            <button class="btn btn-add-to-cart" type="button">
+            <button
+              class="btn btn-add-to-cart"
+              type="button"
+              aria-label="add book to cart"
+            >
               Add to cart
             </button>
             <button class="btn btn-secondary btn-buy" type="submit">
@@ -155,7 +171,11 @@
         </ul>
       </div>
     </div>
-    <button class="btn btn-secondary btn-close-modal" type="button">
+    <button
+      class="btn btn-secondary btn-close-modal"
+      type="button"
+      aria-label="close book"
+    >
       <svg class="mob-close-icon" width="12" height="12">
         <use href="/Booksy-Group11/assets/icons-B0vnLa5p.svg#icon-icon-close" />
       </svg>
@@ -354,12 +374,19 @@
       </div>
       <div class="filters-container">
         <ul class="filters-list" id="filters-list"></ul>
+        <div class="dropdown-wrapper"></div>
       </div>
     </div>
     <div class="book-cards-wrapper">
       <ul class="books-list" id="books-list"></ul>
       <div class="show-more-container">
-        <button class="btn show-more-btn" id="show-more-btn">Show More</button>
+        <button
+          class="btn show-more-btn"
+          id="show-more-btn"
+          aria-label="Show more books"
+        >
+          Show More
+        </button>
       </div>
     </div>
   </div>
