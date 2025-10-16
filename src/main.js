@@ -8,3 +8,6 @@ initMobileMenu();
 
 import { initModalContacts } from './js/modal-contacts.js';
 initModalContacts();
+
+import { initFooterForm } from './js/footer.js';
+initFooterForm();
