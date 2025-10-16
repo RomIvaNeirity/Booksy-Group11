@@ -71,10 +71,12 @@
 
   .location-head-container {
     margin-right: 32px;
+    margin-bottom: 0;
   }
 
   .location-container-list {
     padding: 8px 0;
+    margin-bottom: 0;
   }
 
   .location-head-container,
