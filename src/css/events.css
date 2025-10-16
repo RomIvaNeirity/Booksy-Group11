@@ -71,6 +71,7 @@
   transition: color var(--time) var(--transition),
     fill var(--time) var(--transition);
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .events-register:hover,
