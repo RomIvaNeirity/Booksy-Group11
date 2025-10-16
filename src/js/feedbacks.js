@@ -1,6 +1,6 @@
 import avatarm from "../img/feedbacks/avatar-m.png";
 import avatar from "../img/feedbacks/avatar.png";
-import avatarw from "../img/feedbacks/avatar-m.png";
+import avatarw from "../img/feedbacks/avatar-w.png";
 
 const feedbacks = [
   {
@@ -55,7 +55,7 @@ const feedbacks = [
   {
     id: 8,
     name: 'Oliver Wright',
-    role: 'Teacher, Literature Enthusiast',
+    role: 'Teacher',
     text: 'I appreciate the curated collections. Makes finding classroom material a breeze!',
     image: avatarm,
   },
