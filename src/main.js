@@ -8,3 +8,6 @@ initMobileMenu();
 
 import { initModalContacts } from './js/modal-contacts.js';
 initModalContacts();
+
+import { initScrollButton } from './js/scroll-up.js';
+initScrollButton();
