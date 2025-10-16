@@ -32,8 +32,11 @@ async function loadCategories() {
   try {
     showLoadingState('Loading categories...');
     const categories = await BooksAPI.fetchCategories();
-    BooksRenderer.renderCategories(categories, filtersList, category =>
-      onCategoryChange(category)
+    console.log(categories);
+    BooksRenderer.renderCategories(
+      categories.filter(category => category.list_name.length),
+      filtersList,
+      category => onCategoryChange(category)
     );
     onCategoryChange('All categories');
   } catch (e) {
