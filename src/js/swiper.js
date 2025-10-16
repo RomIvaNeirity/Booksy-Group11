@@ -6,13 +6,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 export const heroSwiper = new Swiper('.hero-swiper', {
-  modules: [Navigation],
+  modules: [Navigation, Keyboard],
   speed: 600,
   loop: false,
   keyboard: {
     enabled: true,
     onlyInViewport: true,
   },
+
   slidesPerView: 1,
   spaceBetween: 20,
   navigation: {

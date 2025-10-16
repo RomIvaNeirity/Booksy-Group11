@@ -8,7 +8,7 @@ let allBooks = [];
 let displayedBooks = 0;
 
 const booksList = document.getElementById('books-list');
-const filtersList = document.getElementById('filters-list');
+const filtersList = document.querySelector('.filters-container');
 const showMoreBtn = document.getElementById('show-more-btn');
 const showingCount = document.getElementById('showing-count');
 const totalCount = document.getElementById('total-count');
@@ -32,22 +32,13 @@ async function loadCategories() {
   try {
     showLoadingState('Loading categories...');
     const categories = await BooksAPI.fetchCategories();
-    const allowed = [
-      'Combined Print and E-Book Fiction',
-      'Combined Print and E-Book Nonfiction',
-      'Hardcover Fiction',
-      'Paperback Trade Fiction',
-      'Paperback Nonfiction',
-      'Advice How-To and Miscellaneous',
-      'Childrens Middle Grade Hardcover',
-    ];
-    const filtered = categories.filter(cat => allowed.includes(cat.list_name));
-    BooksRenderer.renderCategories(filtered, filtersList, category =>
+    BooksRenderer.renderCategories(categories, filtersList, category =>
       onCategoryChange(category)
     );
     onCategoryChange('All categories');
-  } catch {
+  } catch (e) {
     showError('Could not load categories.');
+    console.log(e);
   }
 }
 function onCategoryChange(category) {

@@ -1,5 +1,7 @@
-.container-feedback {
-  padding: 64px 16px;
+
+
+.feedbacks-section{
+  padding: 64px 0;
 }
 
 .feedback-title {
@@ -39,7 +41,6 @@
 .user-container {
   display: flex;
   gap: 16px;
-  /*margin-top: auto;*/
 }
 
 .user-info {
@@ -136,20 +137,17 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container-feedback {
-    padding: 64px 32px;
-  }
-
   .swiper-slide.feedback-item {
     min-width: 340px;
     height: 244px;
   }
+
+    .user-container{
+      margin-top: auto;
+    }
 }
 
 @media screen and (min-width: 1440px) {
-  .container-feedback {
-    padding: 64px 64px;
-  }
 
   .swiper-slide.feedback-item {
     min-width: 421px;
