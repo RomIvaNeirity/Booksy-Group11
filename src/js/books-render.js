@@ -50,7 +50,6 @@ export default class BooksRenderer {
               class="filter-item ${
                 category.list_name === 'All categories' ? 'active' : ''
               }"
-              role="button"
               tabindex="0"
             >
               ${category.list_name}
