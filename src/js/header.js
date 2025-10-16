@@ -2,7 +2,9 @@ export function initMobileMenu() {
   const mobileMenu = document.querySelector('.mobile-menu');
   const openBtn = document.querySelector('.mob-menu-btn');
   const closeBtn = document.querySelector('.mob-menu-close-btn');
-  const navLinks = document.querySelectorAll('.nav-link, .mob-nav-link');
+  const scrollLinks = document.querySelectorAll(
+    '.nav-link, .mob-nav-link, a[href^="#"]'
+  );
 
   const openMenu = () => {
     mobileMenu.classList.add('is-open');
@@ -17,7 +19,7 @@ export function initMobileMenu() {
   if (openBtn) openBtn.addEventListener('click', openMenu);
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-  navLinks.forEach(link => {
+  scrollLinks.forEach(link => {
     link.addEventListener('click', event => {
       const targetId = link.getAttribute('href');
       const targetSection = document.querySelector(targetId);
