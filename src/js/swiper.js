@@ -37,12 +37,12 @@ export const swiperEvents = new Swiper('.events-swiper', {
   },
 
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.events-swiper-button-next',
+    prevEl: '.events-swiper-button-prev',
   },
 
   pagination: {
-    el: '.swiper-pagination',
+    el: '.events-swiper-pagination',
     clickable: true,
     bulletClass: 'swiper-pagination-bullet',
     bulletActiveClass: 'swiper-pagination-bullet-active',

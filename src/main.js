@@ -8,5 +8,7 @@ import './js/feedbacks.js';
 import { initModalContacts } from './js/modal-contacts.js';
 initModalContacts();
 
+import { initScrollButton } from './js/scroll-up.js';
+initScrollButton();
 import { initFooterForm } from './js/footer.js';
 initFooterForm();
