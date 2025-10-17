@@ -1,13 +1,14 @@
-import './js/feedbacks.js';
-import { feedbacksSwiper } from './js/swiper.js';
+import { heroSwiper, feedbacksSwiper, swiperEvents } from './js/swiper.js';
 import './js/books-main.js';
-import { heroSwiper } from './js/swiper.js';
-import { swiperEvents } from './js/swiper.js';
 import { initMobileMenu } from './js/header.js';
 initMobileMenu();
+
+import './js/feedbacks.js';
 
 import { initModalContacts } from './js/modal-contacts.js';
 initModalContacts();
 
 import { initScrollButton } from './js/scroll-up.js';
 initScrollButton();
+import { initFooterForm } from './js/footer.js';
+initFooterForm();
