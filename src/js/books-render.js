@@ -23,7 +23,6 @@ export default class BooksRenderer {
     const categories = this._categories;
     const onCategoryClick = this._onCategoryClick;
 
-    console.log(this._isMobile);
     if (this._isMobile) {
       selectContainer.classList.remove('no-display');
       listContainer.classList.add('no-display');
