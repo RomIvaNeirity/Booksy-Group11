@@ -36,6 +36,7 @@
   border-radius: 16px !important;
   margin-bottom: 24px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .events-subtitle {
