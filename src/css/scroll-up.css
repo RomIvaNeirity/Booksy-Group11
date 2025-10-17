@@ -2,17 +2,16 @@
   position: fixed;
   bottom: 12px;
   right: 12px;
-  z-index: 999;
+  z-index: 10;
   cursor: pointer;
+  display: none;
   width: 48px;
   height: 48px;
   padding: 11px;
   background-color: #e15d05;
   border: 1px solid rgba(11, 5, 0, 0.15);
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  transform: translateY(6px);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .icon-up {
@@ -25,15 +24,14 @@
 }
 
 .scroll-up-btn.visible {
-  background-color: #e15d05;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  display: block;
 }
 
 .scroll-up-btn:hover,
 .scroll-up-btn:focus {
   background-color: #fceee6;
+  transform: translateY(1px);
+  transition: transform 0.6s ease;
 }
 
 .scroll-up-btn:hover .icon-up,
