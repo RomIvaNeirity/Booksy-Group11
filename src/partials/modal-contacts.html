@@ -1,8 +1,13 @@
 <div class="modal-contacts-overlay hidden" id="modalBackdrop">
   <div class="modal-contacts" id="contactsModal">
-    <button type="button" class="modal-contacts-close-btn" id="modalClose">
-      <svg class="modal-contacts-close-icon" width="16" height="16">
-        <use href="./img/icons.svg#icon-icon-close"></use>
+    <button
+      type="button"
+      class="modal-contacts-close-btn"
+      id="modalClose"
+      aria-label="close modal"
+    >
+      <svg class="modal-contacts-close-icon" width="24" height="24">
+        <use href="./img/icons.svg#icon-x"></use>
       </svg>
     </button>
 
@@ -30,6 +35,7 @@
             name="email"
             placeholder="hello@booksy.com"
             required
+            pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
           />
           <span class="modal-contacts-error">This field is required</span>
         </label>
