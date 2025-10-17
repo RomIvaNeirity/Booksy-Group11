@@ -32,7 +32,6 @@ async function loadCategories() {
   try {
     showLoadingState('Loading categories...');
     const categories = await BooksAPI.fetchCategories();
-    console.log(categories);
     BooksRenderer.renderCategories(
       categories.filter(category => category.list_name.length),
       filtersList,

@@ -23,7 +23,6 @@ export default class BooksRenderer {
     const categories = this._categories;
     const onCategoryClick = this._onCategoryClick;
 
-    console.log(this._isMobile);
     if (this._isMobile) {
       selectContainer.classList.remove('no-display');
       listContainer.classList.add('no-display');
@@ -50,6 +49,7 @@ export default class BooksRenderer {
               class="filter-item ${
                 category.list_name === 'All categories' ? 'active' : ''
               }"
+              data-category="${category.list_name}"
               tabindex="0"
             >
               ${category.list_name}
@@ -57,14 +57,13 @@ export default class BooksRenderer {
           `
         )
         .join('');
-      listContainer.querySelectorAll('.filter-item').forEach(item => {
-        item.addEventListener('click', () => {
-          listContainer
-            .querySelectorAll('.filter-item')
-            .forEach(i => i.classList.remove('active'));
-          item.classList.add('active');
-          onCategoryClick(item.dataset.category);
-        });
+      listContainer.addEventListener('click', event => {
+        if (!event.target.classList.contains('filter-item')) return;
+        listContainer
+          .querySelectorAll('.filter-item')
+          .forEach(i => i.classList.remove('active'));
+        event.target.classList.add('active');
+        onCategoryClick(event.target.dataset.category);
       });
     }
   }
